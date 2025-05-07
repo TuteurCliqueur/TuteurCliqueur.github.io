@@ -17,8 +17,8 @@
 	    <ul>
 	      <li><a href="https://tuteurcliqueur.github.io/index.html">Accueil</a></li>
 	      <li><a href="https://tuteurcliqueur.io/math.html">Édition Mathématique</a></li>
-	      <li class="navlock"><a href="" onclick="lockAlert()">🔒 Édition Géographie 🔒</a></li>
-	      <li class="navlock"><a href="" onclick="lockAlert()">🔒 Édition Histoire 🔒</a></li>
+	      <li class="navlock"><a href="" onclick="lockAduio()">🔒 Édition Géographie 🔒</a></li>
+	      <li class="navlock"><a href="" onclick="lockAudio()">🔒 Édition Histoire 🔒</a></li>
 	    </ul>
 	  </nav>
       <h1 class="title">Tuteur Cliqueur </h1>
@@ -34,9 +34,12 @@
 		</center>
 		
 		<script>
-        function lockAlert() {
+        function lockAudio() {
 var audio = new Audio('error_CDOxCYm.mp3');			
 audio.play();
+lockAlert()
+}
+function lockAlert() {
 alert('🚨⚠️ Attendez ! Cette édition est en cours de réalisation, elle sera bientôt disponible... ⚠️🚨');
 }
     </script>

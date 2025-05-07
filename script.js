@@ -1,1 +1,76 @@
-
+body {
+  padding: 25px;
+  font-family: 'Calibri', Sans-Serif;
+  background-color: #f5f0e1;
+}
+.navbar ul {
+  list-style-type: none;
+  background-color: #ffffff;
+  border-color: #000000;
+  padding: 0px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 7px;
+  border: 3px solid #000000;
+}
+.navbar a {
+  font-weight: bold;
+  color: #000000;
+  text-decoration: none;
+  padding: 15px;
+  display: block;
+  text-align: center;
+  transition: transform 0.3s;
+}
+.navbar a:hover {
+  background-color: #eeeeee;
+  transform: scale(1.05);
+}
+.navlock a:hover {
+  color: #000000;
+  background-color: #909090;
+  transform: scale(1.05);
+}
+.navbar li {
+  float: left;
+}
+.mathematiqueText,
+.geographieText,
+.histoireText {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  background-size: 100%;
+  background-position: center;
+  position: relative;
+  border-radius: 100%;
+  border: 4px solid #ffffff;
+  overflow: hidden;
+  transition: transform 0.3s;
+  margin: 20px;
+}
+.mathematiqueText:hover,
+.geographieText:hover,
+.histoireText:hover {
+  transform: scale(1.05);
+}
+.mathematiqueText {
+  background-image: url("https://i0.wp.com/calmatters.org/wp-content/uploads/2021/08/math-curriculum.jpg?fit=2000%2C1500&ssl=1");
+}
+.geographieText {
+  background-image: url("https://assets.onecompiler.app/43abp64dh/43gyy55ae/worldGeoplswork.jpg");
+}
+.histoireText {
+  background-image: url("https://assets.onecompiler.app/43abp64dh/43gyy55ae/Screenshot%202025-05-06%20220212.png");
+}
+.title {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px 15px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 3px solid #000000;
+    transition: transform 0.3s;
+}

@@ -37,7 +37,7 @@ body {
   width: 200px;
   height: 200px;
   display: inline-block;
-  background-size: 100% 100%;
+  background-size: 100%;
   background-position: center;
   position: relative;
   border-radius: 100%;
@@ -55,8 +55,8 @@ body {
   background-image: url("https://i0.wp.com/calmatters.org/wp-content/uploads/2021/08/math-curriculum.jpg?fit=2000%2C1500&ssl=1");
 }
 .geographieText {
-  background-image: url("https://assets.onecompiler.app/43abp64dh/43gywkw86/geolock2.png");
+  background-image: url("https://assets.onecompiler.app/43abp64dh/43gyy55ae/worldGeoplswork.jpg");
 }
 .histoireText {
-  background-image: url("https://assets.onecompiler.app/43abp64dh/43gywkw86/historylock.png");
+  background-image: url("https://assets.onecompiler.app/43abp64dh/43gyy55ae/Screenshot%202025-05-06%20220212.png");
 }

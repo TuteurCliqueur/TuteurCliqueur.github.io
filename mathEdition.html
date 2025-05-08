@@ -1,0 +1,39 @@
+ <!DOCTYPE html>
+<html style="font-family:'calibri'">
+  <head>
+    <meta charset="UTF-8">
+		<title>Tuteur Cliqueur</title>
+		<link rel="stylesheet" href="styles.css">
+  </head>
+	
+  <body style="background-color: #f5f0e1;">
+    <form>
+    <nav class="navbar">
+	    <ul>
+	      <li><a href="https://tuteurcliqueur.github.io/index.html">Accueil</a></li>
+	      <li><a href="https://tuteurcliqueur.io/math.html">Édition Mathématique</a></li>
+	      <li class="navlock"><a onclick="lockAduio()">🔒 Édition Géographie 🔒</a></li>
+	      <li class="navlock"><a onclick="lockAudio()">🔒 Édition Histoire 🔒</a></li>
+	    </ul>
+	  </nav>
+<form>
+<div class="size1 left ">
+<h1 id="counter" style="color: #ffffff; margin-top: 5%">0</h1>
+<div class="calcMain" onclick="clickCounter()">
+  <img src="https://assets.onecompiler.app/43aey9ppa/43h438pcj/Calculator-Download-Free-PNG.png" width="60%">
+</div>
+</div>
+<div class="size2 right">
+<h1>Magazin</h1>
+</div>
+<script>
+  var total = 0
+function clickCounter() {
+  total++
+  var affiche = document.getElementById("counter");
+  affiche.innerHTML = total;
+}
+</script>
+</form>
+  </body>
+</html>

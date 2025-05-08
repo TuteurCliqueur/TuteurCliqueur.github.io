@@ -1,13 +1,8 @@
 body {
-    padding: 25px;
-  font-family: 'Calibri', Sans-Serif;  
-  
-  background-size: cover;
-}
-.back {
-width: "100%";
-height: "100%";
-background-image: url('https://tuteurcliqueur.github.io/ezgif.com-video-to-gif-converter.gif'); 
+background-image: url('https://tuteurcliqueur.github.io/ezgif.com-instagif.gif'); 
+background-size: cover;
+padding: 25px;
+font-family: 'Calibri', Sans-Serif; 
 }
 .navbar ul {
   list-style-type: none;

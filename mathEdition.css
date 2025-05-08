@@ -1,0 +1,87 @@
+body {
+  padding: 25px;
+  font-family: 'Calibri', Sans-Serif;
+
+}
+.navbar ul {
+  list-style-type: none;
+  background-color: #ffffff;
+  border-color: #000000;
+  padding: 0px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 7px;
+  border: 3px solid #000000;
+}
+.navbar a {
+  font-weight: bold;
+  color: #000000;
+  text-decoration: none;
+  padding: 15px;
+  display: block;
+  text-align: center;
+  transition: transform 0.3s;
+}
+.navbar a:hover {
+  background-color: #eeeeee;
+  transform: scale(1.05);
+}
+.navlock a:hover {
+  color: #000000;
+  background-color: #909090;
+  transform: scale(1.05);
+}
+.navbar li {
+  float: left;
+}
+.size2 {
+  height: 100%;
+  width: 30%;
+  position: fixed;
+  z-index: 1;
+  top: 13%;
+  overflow-x: hidden;
+  padding-top: 0;
+  border-radius: 25px;
+}
+.size1 {
+  height: 100%;
+  width: 75%;
+  position: fixed;
+  z-index: 1;
+  top: 13%;
+  overflow-x: hidden;
+  padding-top: 0;
+  
+}
+.left {
+  left: 0;
+  text-align: center;
+	filter: grayscale(100%);
+	background-image: url("https://assets.onecompiler.app/43aey9ppa/43h438pcj/Capture.JPG");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 5px solid #000000;
+}
+.right {
+  right: 0;
+  text-align: center;
+	filter: grayscale(100%);
+	background-color: #FFFFFF;
+  background-size: cover;
+  border: 5px solid #000000;
+}
+.calcMain {
+width: auto;
+margin: auto;
+padding-top: 10px;
+max-width: 500px;
+}
+.calcMain :hover {
+  transform: scale(1.05);
+  transition: transform 0.3s;
+}
+.calcMain :active {
+  transform: scale(1.2);
+  transition: transform 0.3s;
+}

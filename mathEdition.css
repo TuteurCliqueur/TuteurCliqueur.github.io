@@ -58,7 +58,7 @@ body {
   left: 0;
   text-align: center;
 	filter: grayscale(100%);
-	background-image: url("ezgif.com-video-to-gif-converter.gif");
+	background-image: "ezgif.com-video-to-gif-converter.gif";
   background-repeat: no-repeat;
   background-size: cover;
   border: 5px solid #000000;

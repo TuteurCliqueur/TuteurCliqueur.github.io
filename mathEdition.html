@@ -12,10 +12,10 @@
 	      <li><a href="https://tuteurcliqueur.github.io/index.html">Accueil</a></li>
 	      <li><a href="https://tuteurcliqueur.github.io/mathEdition.html">Édition Mathématique</a></li>
 	      <li class="navlock"><a onclick="lockAduio()">🔒 Édition Géographie 🔒</a></li>
-	      <li {{{<}="navlock"><a onclick="lockAudio()">🔒 Édition Histoire 🔒</a></li>
+	      <li class="navlock"><a onclick="lockAudio()">🔒 Édition Histoire 🔒</a></li>
 	    </ul>
 	  </nav>
-<form>
+
 <div class="size1 left ">
 <h1 id="counter" style="color: #ffffff; margin-top: 5%">0</h1>
 <div class="calcMain" onclick="clickCounter()">
@@ -23,10 +23,11 @@
 </div>
 </div>
 <div class="size2 right">
-<h1 style="color: #ffffff;">Magasin</h1>
-        <div class="calcMain upgrade"><p> Année 1 </p><style>text-align: center;</style></div>
-        
-</div>
+<ul style="color: #ffffff;" class="upgrade">Magasin</h1>
+        <li onclick="add1()">Année 1 (1 per sec | cost 10)</li>
+        <li onclick="add10()">Année 2 (10 per sec | cost 100)</li>
+        <li onclick="add100()">Année 3 (100 per sec | cost 1000)</li>
+</ul>
 <script src="mathEdition.js">
 </script>
 </form>

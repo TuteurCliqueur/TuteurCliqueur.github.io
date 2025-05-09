@@ -1,15 +1,42 @@
-  var nbAnne = 1
-  var total = 0
+
 function clickCounter() {
   total++
-  var affiche1 = document.getElementById("counter");
-  affiche1.innerHTML = total;
+  var affiche = document.getElementById("counter");
+  affiche.innerHTML = total;
+  if (total == 100) {
+  alert('yay')
+}
 }
 
-var sclick = 0
-function parSeconde () {
-    sclick++
-    var affiche2 = document.getElementById("counter");
-    affiche2.innerHTML = sclick;
+function parSeconde() {
+    total++
+    var affiche = document.getElementById("counter");
+  affiche.innerHTML = total;
 }
-setInterval(parSeconde, 1000)
+
+function add1() {
+  divSec++
+}
+
+function add10() {
+  divSec += 10
+}
+
+function add100() {
+  divSec += 100
+}
+  var nbAnne = 1
+  var total = 0
+ var divSec = 0
+ var cps = 0
+ 
+if (0 < divSec ) {
+  cps = 1000/divSec
+  setInterval(parSeconde, cps)
+}
+
+
+
+
+
+

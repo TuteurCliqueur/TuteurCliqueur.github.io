@@ -3,46 +3,74 @@
   var divSec = 0
   var cps = 0
   let time = null;
-  var mult = 1
-  var prix = 10
+  var mult10 = 1
+  var mult100 = 1
+  var mult1000 = 1
+  var prix10 = 10
+  var prix100 = 100
+  var prix1000 = 1000
 
-function locked () { 
-  
-  if (total < prix) {
-  document.getElementById('prix10').style.backgroundColor = "#444444";
+function locked (prixIntial, id) {
+
+if (total < prixIntial) {
+  document.getElementById(id).style.backgroundColor = "#444444";
   }
   
-  else if (total >= prix) {
-  document.getElementById('prix10').style.backgroundColor = "#FFFFFF";
+else if (total >= prixIntial) {
+document.getElementById(id).style.backgroundColor = "#FFFFFF";
   }
-  
 }
 
 function affiche() {
   var affiche = document.getElementById("counter");
   affiche.innerHTML = total;
+  
   var affiche2 = document.getElementById("counterPar");
   affiche2.innerHTML = divSec + ' cliques par seconde';
-  
 }
 
 function clickCounter() {
   total++
   affiche()
-  locked()
+  locked(prix10, 'prix10')
+  locked(prix100, 'prix100')
+  locked(prix1000, 'prix1000')
 }
 
-function add(intialPrice, cps, year, idElement) {
-  prix = parseInt(mult*intialPrice)
-  if (total >= prix) {
+function add1() {
+  if (total >= prix10) {
   divSec++;
-  total -= prix;
+  total -= prix10;
   horloge();
-  mult *= 1.3
-  prix = parseInt(mult*prix)
+  mult10 *= 1.5
+  prix10 = parseInt(mult10*10)
+  var affiche = document.getElementById('prix10');
+  affiche.innerHTML = 'Année 1 (1 per sec | cost ' + prix10 + ')';
   } 
-  var affiche = document.getElementById(idElement);
-  affiche.innerHTML = 'Année ' + year + ' (' + cps + 'per sec | cost ' + prix + ')';
+}
+
+function add10() {
+  if (total >= prix100) {
+  divSec += 10;
+  total -= prix100;
+  horloge();
+  mult100 *= 1.5
+  prix100 = parseInt(mult100*100)
+  var affiche = document.getElementById('prix100');
+  affiche.innerHTML = 'Année 2 (10 per sec | cost ' + prix100 + ')';
+  } 
+}
+
+function add100() {
+  if (total >= prix1000) {
+  divSec += 100;
+  total -= prix1000;
+  horloge();
+  mult1000 *= 1.5
+  prix1000 = parseInt(mult1000*1000)
+  var affiche = document.getElementById('prix1000');
+  affiche.innerHTML = 'Année 3 (100 per sec | cost ' + prix1000 + ')';
+  } 
 }
   
 function horloge() {
@@ -57,4 +85,3 @@ function horloge() {
   }
   
 }
-

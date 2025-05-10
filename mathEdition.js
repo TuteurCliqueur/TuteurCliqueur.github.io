@@ -51,7 +51,7 @@ function add100() {
     mult *= 1.5
   }
   var affiche = document.getElementById("prix1000");
-  affiche.innerHTML = 'Année 2 (10 per sec | cost ' + prix + ')';
+  affiche.innerHTML = 'Année 3 (100 per sec | cost ' + prix + ')';
 }
   
 function horloge() {

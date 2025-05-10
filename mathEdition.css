@@ -96,13 +96,17 @@ max-width: 500px;
       transition: transform 0.2s ease, background-color 0.2s;
       cursor: pointer;
 }
-.upgrade :hover {
-background-color: #dddddd;
+.upgrade li:hover {
+background-color: #aaaaaa;
 transform: scale(1.05);
 transition: transform 0.3s;
 }
-.upgrade :active {
-background-color: #dddddd;
+.upgrade li:active {
+background-color: #eeeeee;
 transform: scale(1.15);
 transition: transform 0.3s;
+}
+.numberOf {
+  float: left;
+  margin-top: 2%;
 }

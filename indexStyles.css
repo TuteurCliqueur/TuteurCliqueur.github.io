@@ -60,16 +60,17 @@ body {
   background-image: url("https://i0.wp.com/calmatters.org/wp-content/uploads/2021/08/math-curriculum.jpg?fit=2000%2C1500&ssl=1");
 }
 .geographieBubble {
-  background-image: url("https://assets.onecompiler.app/43abp64dh/43gyy55ae/worldGeoplswork.jpg");
+  background-image: url("https://assets.onecompiler.app/43abp64dh/43hccjhtv/Sans%20titre.jpg");
 }
 .histoireBubble {
-  background-image: url("https://assets.onecompiler.app/43abp64dh/43gyy55ae/Screenshot%202025-05-06%20220212.png");
+  background-image: url("https://assets.onecompiler.app/43abp64dh/43hccjhtv/Sans%20titreballs.jpg");
 }
 .geographieText,
 .histoireText{
+  background-image: url("https://assets.onecompiler.app/43abp64dh/43gyy55ae/Screenshot%202025-05-06%20220212.png");
   display: inline-block;
   background-color: #ffffff;
-  color: black;
+  color: white;
   padding: 5px 10px;
   margin-top: 25px;
   font-weight: bold;
@@ -101,4 +102,15 @@ body {
   border-radius: 5px;
   border: 3px solid #000000;
   transition: transform 0.3s;
+}
+.overlay-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 80%;
 }

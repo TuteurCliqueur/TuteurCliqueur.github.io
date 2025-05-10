@@ -22,7 +22,7 @@ function add1() {
   divSec++;
   total -= (10*prix);
   horloge();
-  prix += 0.5
+  prix += 1.5
   }
   var affiche = document.getElementById("prix10");
   affiche.innerHTML = 'Année 1 (1 per sec | cost ' + (10*prix) + ')';
@@ -33,7 +33,7 @@ function add10() {
     divSec += 10;
     total -= (100*prix);
     horloge(); 
-    prix += 0.5
+    prix += 1.5
   }
   var affiche = document.getElementById("prix100");
   affiche.innerHTML = 'Année 2 (10 per sec | cost ' + (100*prix) + ')';
@@ -44,6 +44,7 @@ function add100() {
     divSec += 100;
     total -= (1000*prix);
     horloge(); 
+    prix += 1.5
   }
   var affiche = document.getElementById("prix1000");
   affiche.innerHTML = 'Année 3 (100 per sec | cost ' + (1000*prix) + ')';

@@ -4,54 +4,45 @@
   var cps = 0
   let time = null;
   var mult = 1
-  var prix = null
+  var prix = 10
+
+function locked () { 
+  
+  if (total < prix) {
+  document.getElementById('prix10').style.backgroundColor = "#444444";
+  }
+  
+  else if (total >= prix) {
+  document.getElementById('prix10').style.backgroundColor = "#FFFFFF";
+  }
+  
+}
 
 function affiche() {
   var affiche = document.getElementById("counter");
   affiche.innerHTML = total;
   var affiche2 = document.getElementById("counterPar");
   affiche2.innerHTML = divSec + ' cliques par seconde';
+  
 }
 
 function clickCounter() {
   total++
   affiche()
+  locked()
 }
 
-function add1() {
-  prix = mult*10
+function add(intialPrice, cps, year, idElement) {
+  prix = parseInt(mult*intialPrice)
   if (total >= prix) {
   divSec++;
   total -= prix;
   horloge();
-  mult *= 1.5
-  }
-  var affiche = document.getElementById("prix10");
-  affiche.innerHTML = 'Année 1 (1 per sec | cost ' + prix + ')';
-}
-
-function add10() {
-  prix = mult*100
-  if (total >= prix) {
-    divSec += 10;
-    total -= prix;
-    horloge(); 
-    mult *= 1.5
-  }
-  var affiche = document.getElementById("prix100");
-  affiche.innerHTML = 'Année 2 (10 per sec | cost ' + prix + ')';
-}
-
-function add100() {
- prix = mult*1000
-  if (total >= prix) {
-    divSec += 100;
-    total -= prix;
-    horloge(); 
-    mult *= 1.5
-  }
-  var affiche = document.getElementById("prix1000");
-  affiche.innerHTML = 'Année 3 (100 per sec | cost ' + prix + ')';
+  mult *= 1.3
+  prix = parseInt(mult*prix)
+  } 
+  var affiche = document.getElementById(idElement);
+  affiche.innerHTML = 'Année ' + year + ' (' + cps + 'per sec | cost ' + prix + ')';
 }
   
 function horloge() {
@@ -64,6 +55,6 @@ function horloge() {
 
     time = setInterval(clickCounter, cps); 
   }
+  
 }
-
 

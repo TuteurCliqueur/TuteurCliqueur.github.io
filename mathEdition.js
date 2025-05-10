@@ -9,6 +9,14 @@
   var prix10 = 10
   var prix100 = 100
   var prix1000 = 1000
+  var num10 = 0
+  var num100 = 0
+  var num1000 = 0
+
+function numberOf(elementId, valeur) {
+  var Id = document.getElementById(elementId);
+  Id.innerHTML = valeur;
+}
 
 function locked (prixIntial, id) {
 
@@ -32,9 +40,9 @@ function affiche() {
 function clickCounter() {
   total++
   affiche()
-  locked(prix10, 'prix10')
-  locked(prix100, 'prix100')
-  locked(prix1000, 'prix1000')
+  locked(prix10, 'box10')
+  locked(prix100, 'box100')
+  locked(prix1000, 'box1000')
 }
 
 function add1() {
@@ -46,6 +54,8 @@ function add1() {
   prix10 = parseInt(mult10*10)
   var affiche = document.getElementById('prix10');
   affiche.innerHTML = 'Année 1 (1 per sec | cost ' + prix10 + ')';
+  num10++
+  numberOf('numberId1', num10)
   } 
 }
 
@@ -58,6 +68,8 @@ function add10() {
   prix100 = parseInt(mult100*100)
   var affiche = document.getElementById('prix100');
   affiche.innerHTML = 'Année 2 (10 per sec | cost ' + prix100 + ')';
+  num100++
+  numberOf('numberId2', num100)
   } 
 }
 
@@ -70,6 +82,8 @@ function add100() {
   prix1000 = parseInt(mult1000*1000)
   var affiche = document.getElementById('prix1000');
   affiche.innerHTML = 'Année 3 (100 per sec | cost ' + prix1000 + ')';
+  num1000++
+  numberOf('numberId3', num1000)
   } 
 }
   

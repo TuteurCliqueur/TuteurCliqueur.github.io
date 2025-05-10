@@ -3,7 +3,8 @@
   var divSec = 0
   var cps = 0
   let time = null;
-  var prix = 1
+  var mult = 1
+  var prix = null
 
 function affiche() {
   var affiche = document.getElementById("counter");
@@ -18,36 +19,39 @@ function clickCounter() {
 }
 
 function add1() {
-  if (total >= (10*prix)) {
+  prix = mult*10
+  if (total >= prix) {
   divSec++;
-  total -= (10*prix);
+  total -= prix;
   horloge();
-  prix *= 1.5
+  mult *= 1.5
   }
   var affiche = document.getElementById("prix10");
-  affiche.innerHTML = 'Année 1 (1 per sec | cost ' + (10*prix) + ')';
+  affiche.innerHTML = 'Année 1 (1 per sec | cost ' + prix + ')';
 }
 
 function add10() {
-  if (total >= (100*prix)) {
+  prix = mult*100
+  if (total >= prix) {
     divSec += 10;
-    total -= (100*prix);
+    total -= prix;
     horloge(); 
-    prix *= 1.5
+    mult *= 1.5
   }
   var affiche = document.getElementById("prix100");
-  affiche.innerHTML = 'Année 2 (10 per sec | cost ' + (100*prix) + ')';
+  affiche.innerHTML = 'Année 2 (10 per sec | cost ' + prix + ')';
 }
 
 function add100() {
-  if (total >= (1000*prix)) {
+ prix = mult*1000
+  if (total >= prix) {
     divSec += 100;
-    total -= (1000*prix);
+    total -= prix;
     horloge(); 
-    prix *= 1.5
+    mult *= 1.5
   }
   var affiche = document.getElementById("prix1000");
-  affiche.innerHTML = 'Année 3 (100 per sec | cost ' + (1000*prix) + ')';
+  affiche.innerHTML = 'Année 2 (10 per sec | cost ' + prix + ')';
 }
   
 function horloge() {

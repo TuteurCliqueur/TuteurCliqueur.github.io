@@ -110,3 +110,32 @@ transition: transform 0.3s;
   float: left;
   margin-top: 2%;
 }
+.popup {
+    position: absolute;
+    padding: 8px 12px;
+    pointer-events: none;
+    font-size: 200%;
+    z-index: 1;
+    animation-name: popUpClick;
+    animation-duration: 3s;  
+    animation-fill-mode: forwards;
+    color: #ff0000;
+    font-weight: bold;
+  }
+@keyframes popUpClick {
+  from {${event.pageY}px;}
+  to {top: 40px; opacity: 0%;}
+    }
+    
+.hi {
+   position: fixed;
+   display: inline-block;
+   width: 50%;
+   height: 50%;
+   backdrop-filter: blur(20px);
+   border: 8px solid #000000;
+   border-radius: 30px;
+   top: 25%;
+   left: 25%;
+   text-align: center;
+ }

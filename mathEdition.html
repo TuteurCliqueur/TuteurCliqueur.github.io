@@ -27,9 +27,9 @@
 <div class="size2 right">
   <h1 style='color: #ffffff'>Magasin</h1>
 <ul style="color: #ffffff;" class="upgrade">
-        <li id="box10" onclick="add1();"><h1 id='numberId1' class='numberOf'> </h1><p id="prix10">Année 1 (1 per sec | cost 10)</p></li>
-        <li id="box100" onclick="add10();"><h1 id='numberId2' class='numberOf'> </h1><p id="prix100">Année 2 (10 per sec | cost 100)</p></li>
-        <li id="box1000" onclick="add100();"><h1 id='numberId3' class='numberOf'> </h1><p id="prix1000">Année 3 (100 per sec | cost 1000)</p></li>
+        <li id="box10" onclick="alertV2(add1);"><h1 id='numberId1' class='numberOf'> </h1><p id="prix10">Année 1 (1 per sec | cost 10)</p></li>
+        <li id="box100" onclick="alertV2(add10);"><h1 id='numberId2' class='numberOf'> </h1><p id="prix100">Année 2 (10 per sec | cost 100)</p></li>
+        <li id="box1000" onclick="alertV2(add100);"><h1 id='numberId3' class='numberOf'> </h1><p id="prix1000">Année 3 (100 per sec | cost 1000)</p></li>
 </ul>
 </div>
 
@@ -44,7 +44,9 @@
   <h1 id='verdic'></h1>
   <div id='answer'></div>
   <br></br>
-  <input type="button" onclick="document.getElementById('prt2').remove()" value='Fermer'>
+  <input type="button" onclick="document.getElementById('prt2').style.display = 'none'; document.getElementById('blurJS').style.display = 'none';" value='Fermer'>
+</div>
+<div id='blurJS' class='questionBackBlur' style='display: none;'> 
 </div>
 
 <script src="mathEdition.js">

@@ -46,7 +46,6 @@ function clickCounter() {
 }
 
 function add1() {
-  if (total >= prix10) {
     divSec++;
     total -= prix10;
     horloge();
@@ -56,8 +55,6 @@ function add1() {
     affiche.innerHTML = 'Année 1 (1 per sec | cost ' + prix10 + ')';
     num10++
     numberOf('numberId1', num10)
-    }
-  } 
 }
 
 function add10() {
@@ -118,9 +115,12 @@ var calc = document.getElementById('calc')
     }, 2000);
   });
   
-function alertV2 () {
-  
+function alertV2 (addFunc) {
+ if (total >= prix10) { 
   document.getElementById('prt1').style.display = 'block'
+  document.getElementById('blurJS').style.display = 'block'
+  
+  
   
   var num1 = parseInt(Math.random()*10)
   var num2 = parseInt(Math.random()*10)
@@ -131,19 +131,22 @@ function alertV2 () {
   question.innerHTML = num1 + ' + ' + num2 + ' = ?'
   
   document.getElementById("verify").onclick = function () {
+    
     var userAnswer = document.getElementById('userAnswer').value;
     document.getElementById('prt2').style.display = 'block';
-    document.getElementById('prt1').remove();
+    document.getElementById('prt1').style.display = 'none';
 
     if (userAnswer == egal) {
       verdic.innerHTML = 'Correct!';
-      answer.innerHTML += 'Answer : ' + egal;
+      answer.innerHTML = 'Answer : ' + egal;
+      addFunc();
       } 
       
       else {
       verdic.innerHTML = 'Incorect...';
-      answer.innerHTML += 'Answer : ' + egal;
+      answer.innerHTML = 'Answer : ' + egal;
       }
   }
+ }
 }
   

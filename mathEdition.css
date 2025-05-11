@@ -132,10 +132,20 @@ transition: transform 0.3s;
    display: inline-block;
    width: 50%;
    height: 50%;
-   backdrop-filter: blur(20px);
+   background-color: #aaaaaa;
    border: 8px solid #000000;
    border-radius: 30px;
    top: 25%;
    left: 25%;
    text-align: center;
+ }
+ .questionBackBlur {
+   position: fixed;
+   display: inline-block;
+   width: 100%;
+   height: 100%;
+   backdrop-filter: blur(12px);
+   z-index: 3;
+   left: 0px;
+   top: 0px;
  }

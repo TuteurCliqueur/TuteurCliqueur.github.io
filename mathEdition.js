@@ -47,29 +47,30 @@ function clickCounter() {
 
 function add1() {
   if (total >= prix10) {
-  divSec++;
-  total -= prix10;
-  horloge();
-  mult10 *= 1.5
-  prix10 = parseInt(mult10*10)
-  var affiche = document.getElementById('prix10');
-  affiche.innerHTML = 'Année 1 (1 per sec | cost ' + prix10 + ')';
-  num10++
-  numberOf('numberId1', num10)
+    divSec++;
+    total -= prix10;
+    horloge();
+    mult10 *= 1.5
+    prix10 = parseInt(mult10*10)
+    var affiche = document.getElementById('prix10');
+    affiche.innerHTML = 'Année 1 (1 per sec | cost ' + prix10 + ')';
+    num10++
+    numberOf('numberId1', num10)
+    }
   } 
 }
 
 function add10() {
   if (total >= prix100) {
-  divSec += 10;
-  total -= prix100;
-  horloge();
-  mult100 *= 1.5
-  prix100 = parseInt(mult100*100)
-  var affiche = document.getElementById('prix100');
-  affiche.innerHTML = 'Année 2 (10 per sec | cost ' + prix100 + ')';
-  num100++
-  numberOf('numberId2', num100)
+    divSec += 10;
+    total -= prix100;
+    horloge();
+    mult100 *= 1.5
+    prix100 = parseInt(mult100*100)
+    var affiche = document.getElementById('prix100');
+    affiche.innerHTML = 'Année 2 (10 per sec | cost ' + prix100 + ')';
+    num100++
+    numberOf('numberId2', num100)
   } 
 }
 
@@ -97,5 +98,52 @@ function horloge() {
 
     time = setInterval(clickCounter, cps); 
   }
-  
 }
+
+var calc = document.getElementById('calc')
+
+    calc.addEventListener('click', function(event) {
+
+    const popup = document.createElement('div');
+    popup.className = 'popup';
+    popup.textContent = '+1';
+
+    popup.style.left = `${event.pageX}px`;
+    popup.style.top = `${event.pageY}px`;
+
+    document.body.appendChild(popup);
+
+    setTimeout(() => {
+      popup.remove();
+    }, 2000);
+  });
+  
+function alertV2 () {
+  
+  document.getElementById('prt1').style.display = 'block'
+  
+  var num1 = parseInt(Math.random()*10)
+  var num2 = parseInt(Math.random()*10)
+  var egal = num1 + num2
+  var verdic = document.getElementById('verdic')
+  var question = document.getElementById('question')
+  var answer = document.getElementById('answer')
+  question.innerHTML = num1 + ' + ' + num2 + ' = ?'
+  
+  document.getElementById("verify").onclick = function () {
+    var userAnswer = document.getElementById('userAnswer').value;
+    document.getElementById('prt2').style.display = 'block';
+    document.getElementById('prt1').remove();
+
+    if (userAnswer == egal) {
+      verdic.innerHTML = 'Correct!';
+      answer.innerHTML += 'Answer : ' + egal;
+      } 
+      
+      else {
+      verdic.innerHTML = 'Incorect...';
+      answer.innerHTML += 'Answer : ' + egal;
+      }
+  }
+}
+  

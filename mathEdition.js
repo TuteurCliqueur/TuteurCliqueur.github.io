@@ -91,7 +91,7 @@ function add100(verdic) {
     horloge();
     mult1000 *= 1.5
     prix1000 = parseInt(mult1000*1000)
-    var affichePrix = document.getElementById('prix10');
+    var affichePrix = document.getElementById('prix1000');
     affichePrix.innerHTML = 'Année 3 (100 per sec | cost ' + prix1000 + ')';
     num1000++
     numberOf('numberId3', num1000)

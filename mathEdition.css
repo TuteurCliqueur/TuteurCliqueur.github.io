@@ -1,8 +1,8 @@
 body {
-background-image: url('https://tuteurcliqueur.github.io/ezgif.com-instagif.gif'); 
-background-size: cover;
-padding: 25px;
-font-family: 'Calibri', Sans-Serif; 
+  background-image: url('https://tuteurcliqueur.github.io/ezgif.com-instagif.gif'); 
+  background-size: cover;
+  padding: 25px;
+  font-family: 'Calibri', Sans-Serif; 
 }
 .navbar ul {
   list-style-type: none;
@@ -64,13 +64,13 @@ font-family: 'Calibri', Sans-Serif;
 backdrop-filter: blur(20px);
   right: 0;
   text-align: center;
- border: 5px solid #ffffff;
+  border: 5px solid #ffffff;
 }
 .calcMain {
-width: auto;
-margin: auto;
-padding-top: 10px;
-max-width: 500px;
+  width: auto;
+  margin: auto;
+  padding-top: 10px;
+  max-width: 500px;
 }
 .calcMain  :hover {
   transform: scale(1.05);
@@ -86,25 +86,25 @@ max-width: 500px;
 }
 .upgrade li{
   background-color: #444444;
-      color: #000000;
-      border: 2px solid #999999;
-      padding: 15px 20px;
-      margin: 10px 0;
-      margin: 10%;
-      border-radius: 12px;
-      font-size: 18px;
-      transition: transform 0.2s ease, background-color 0.2s;
-      cursor: pointer;
+  color: #000000;
+  border: 2px solid #999999;
+  padding: 15px 20px;
+  margin: 10px 0;
+  margin: 10%;
+  border-radius: 12px;
+  font-size: 18px;
+  transition: transform 0.2s ease, background-color 0.2s;
+  cursor: not-allowed;
 }
 .upgrade li:hover {
-background-color: #aaaaaa;
-transform: scale(1.05);
-transition: transform 0.3s;
+  background-color: #aaaaaa;
+  transform: scale(1.05);
+  transition: transform 0.3s;
 }
 .upgrade li:active {
-background-color: #eeeeee;
-transform: scale(1.15);
-transition: transform 0.3s;
+  background-color: #eeeeee;
+  transform: scale(1.15);
+  transition: transform 0.3s;
 }
 .numberOf {
   float: left;
@@ -139,6 +139,17 @@ transition: transform 0.3s;
    left: 25%;
    text-align: center;
  }
+ 
+ @keyframes correct {
+  from {background-color: #64cc64;}
+  to {background-color: #aaaaaa;}
+    }
+    
+  @keyframes incorrect {
+  from {background-color: #cc6464;}
+  to {background-color: #aaaaaa;}
+  }
+  
  .questionBackBlur {
    position: fixed;
    display: inline-block;

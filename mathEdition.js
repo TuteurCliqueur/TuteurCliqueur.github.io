@@ -1,5 +1,5 @@
   var nbAnne = 1
-  var total = 999
+  var total = 0
   var divSec = 0
   var cps = 0
   let time = null;

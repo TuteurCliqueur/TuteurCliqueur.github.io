@@ -49,7 +49,7 @@ function clickCounter() {
 }
 
 function add1(verdic) {
-  if (verdic) {
+  if ((total >= prix10) && verdic) {
     divSec++;
     total -= prix10;
     horloge();
@@ -67,7 +67,7 @@ function add1(verdic) {
 }
 
 function add10(verdic) {
-  if (verdic) {
+  if ((total >= prix100) && verdic) {
     divSec += 10;
     total -= prix100;
     horloge();
@@ -85,7 +85,7 @@ function add10(verdic) {
 }
 
 function add100(verdic) {
-  if (verdic) {
+  if ((total >= prix1000) && verdic) {
     divSec += 100;
     total -= prix1000;
     horloge();
@@ -132,12 +132,9 @@ var calc = document.getElementById('calc')
     }, 2000);
   });
   
-function alertV2 (addFunc) {
- if (total >= prix10) { 
+function alertV2 (addFunc) { 
   document.getElementById('prt1').style.display = 'block'
   document.getElementById('blurJS').style.display = 'block'
-  
-  
   
   var num1 = parseInt(Math.random()*10)
   var num2 = parseInt(Math.random()*10)
@@ -172,7 +169,6 @@ function alertV2 (addFunc) {
       const audioFaux = new Audio('https://tuteurcliqueur.github.io/wrong-47985.mp3');
       audioFaux.play();
       }
-  }
  }
 }
   

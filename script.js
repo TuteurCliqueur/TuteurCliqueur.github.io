@@ -1,3 +1,5 @@
+/*Déclaration des varaibles pour l'interaction de cliques et de upgrades*/
+
   var nbAnne = 1
   var total = 0
   var divSec = 0

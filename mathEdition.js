@@ -1,5 +1,5 @@
   var nbAnne = 1
-  var total = 0
+  var total = 999
   var divSec = 0
   var cps = 0
   let time = null;
@@ -76,7 +76,7 @@ function add10(verdic) {
     var affichePrix = document.getElementById('prix100');
     affichePrix.innerHTML = 'Année 2 (10 per sec | cost ' + prix100 + ')';
     num100++
-    numberOf('numberId1', num100)
+    numberOf('numberId2', num100)
   }
   else {
     total -= prix100;
@@ -84,7 +84,7 @@ function add10(verdic) {
   }
 }
 
-function add1(verdic) {
+function add100(verdic) {
   if (verdic) {
     divSec += 100;
     total -= prix1000;
@@ -94,7 +94,7 @@ function add1(verdic) {
     var affichePrix = document.getElementById('prix10');
     affichePrix.innerHTML = 'Année 3 (100 per sec | cost ' + prix1000 + ')';
     num1000++
-    numberOf('numberId1', num1000)
+    numberOf('numberId3', num1000)
   }
   else {
     total -= prix1000;

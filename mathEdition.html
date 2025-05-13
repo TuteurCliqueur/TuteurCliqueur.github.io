@@ -15,12 +15,44 @@
 	      <li class="navlock"><a onclick="lockAudio()">🔒 Édition Histoire 🔒</a></li>
 	    </ul>
 	  </nav>
+	  
+<div class="hi" id="tut1">
+<h1>CLICK GAME.</h1>
+<p style='font-size: 75%; font-weight: bold;'>
+    Notre jeu combine l'apprentissage des 
+    mathématiques avec un gameplay captivant. 
+    Les joueurs répondent à des questions mathématiques 
+    pour progresser et acheter des améliorations. 
+    Chaque niveau propose des défis et des questions 
+    plus difficiles, aidant les joueurs à améliorer 
+    leurs compétences tout en s'amusant. C'est un 
+    voyage enrichissant où chaque clic compte pour 
+    les progrès et les connaissances!
+    </p>
+    <input type="button" onclick="document.getElementById('tut1').style.display = 'none'; document.getElementById('blurJS').style.display = 'none';" value='Fermer'>
+</div>
+
+<div class="hi" id="tut2" style="display: none;">
+  <h1>YOU CAN BUY NOW.</h1>
+  <p style='font-size: 75%; font-weight: bold;'>
+  Une fois que vous avez accumulé suffisamment de points, 
+  vous pouvez acheter des améliorations. Chaque amélioration 
+  est accessible par le moyen d'une question mathématique, 
+  si vous avez la bonne réponse, vous réussissez et obtenez 
+  l'amélioration, sinon vous perdez l'argent et rien n'est 
+  gagné. Vous aurez accès à de plus en plus d'améliorations 
+  classées par année. Plus l'année est élevée, plus le prix 
+  est élevé, plus l'amélioration est bonne et plus les questions 
+  sont difficiles. 
+  </p>
+  <input type="button" onclick="document.getElementById('tut2').style.display = 'none'; document.getElementById('blurJS').style.display = 'none';" value='Fermer'>
+</div>
 
 <div class="size1 left ">
 <h1 id="counter" style="color: #ffffff; margin-top: 5%">0</h1>
 <h2 id="counterPar" style="color: #ffffff; margin-top: 5%">0 cliques par seconde</h2>
 <div class="calcMain" onclick="clickCounter()">
-  <img id='calc' src="https://tuteurcliqueur.github.io/Calculator-Download-Free-PNG.png" style='cursor: pointer;' width="60%">
+  <img draggable="false" id='calc' src="https://tuteurcliqueur.github.io/Calculator-Download-Free-PNG.png" style='cursor: pointer;' width="60%">
 </div>
 </div>
 
@@ -33,7 +65,7 @@
 </ul>
 </div>
 
-<div id='prt1' class='hi' style='display: none; z-index: 5'>
+<div id='prt1' class='hi' style='display: none;'>
   <h1>Hi fella</h1>
   <div id='question'></div>
   <br></br>
@@ -44,9 +76,9 @@
   <h1 id='verdic'></h1>
   <div id='answer'></div>
   <br></br>
-  <input type="button" onclick="document.getElementById('prt2').style.display = 'none'; document.getElementById('blurJS').style.display = 'none';" value='Fermer'>
+  <input type="button" onclick="document.getElementById('prt2').style.display = 'none';" value='Fermer'>
 </div>
-<div id='blurJS' class='questionBackBlur' style='display: none;'> 
+<div id='blurJS' class='questionBackBlur'> 
 </div>
 
 <script src="mathEdition.js">

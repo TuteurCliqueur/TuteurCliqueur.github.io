@@ -3,6 +3,7 @@ body {
   background-size: cover;
   padding: 25px;
   font-family: 'Calibri', Sans-Serif; 
+  user-select: none;
 }
 .navbar ul {
   list-style-type: none;
@@ -124,7 +125,7 @@ backdrop-filter: blur(20px);
   }
 @keyframes popUpClick {
   from {${event.pageY}px;}
-  to {top: 40px; opacity: 0%;}
+  to {top: 40px; opacity: 0%; rotate: 90deg;}
     }
     
 .hi {
@@ -133,11 +134,13 @@ backdrop-filter: blur(20px);
    width: 50%;
    height: 50%;
    background-color: #aaaaaa;
+   background-size: 80%;
    border: 8px solid #000000;
    border-radius: 30px;
    top: 25%;
    left: 25%;
    text-align: center;
+   z-index: 5
  }
  
  @keyframes correct {

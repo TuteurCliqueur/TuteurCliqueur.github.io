@@ -13,6 +13,25 @@
   var num1000 = 0
   var cycletut2 = true //Ça controle le cycle du deuxieme tutoriel et va seulement affiché une seule fois
 
+function add(numAnné, prix, divNum, affichePrixId, numDe, afficheNumberId) {
+    if (total >= prix) {
+    divSec += divNum;
+    total -= prix;
+    horloge();
+    mult *= 1.5
+    prix = parseInt(mult*prix)
+    var affichePrix = document.getElementById(affichePrixId);
+    affichePrix.innerHTML = 'Année ' + numAnné + ' (' + divNum + ' per sec | cost ' + prix + ')';
+    numDe++
+    numberOf(afficheNumberId, numDe)
+  }
+  else {
+    total -= prix;
+    affiche();
+  } 
+}
+
+
 //Ceci affiche le deuxieme tutoriel
 function tut2 () {
   //Si total est plus grand ou égal à 10 est cycletut2 est vrai, affiche le deuxieme tutoriel et remets cycletut2 à faux

@@ -12,6 +12,15 @@
   var num10 = 0
   var num100 = 0
   var num1000 = 0
+  var cycletut2 = true
+
+function tut2 () {
+  if ((total >= 10) && cycletut2) {
+  document.getElementById('tut2').style.display = 'block' 
+  document.getElementById('blurJS').style.display = 'block'
+  cycletut2 = false
+  }
+}
 
 function numberOf(elementId, valeur) {
   var Id = document.getElementById(elementId);
@@ -41,6 +50,7 @@ function affiche() {
   locked(prix10, 'box10')
   locked(prix100, 'box100')
   locked(prix1000, 'box1000')
+  tut2()
 }
 
 function clickCounter() {

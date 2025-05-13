@@ -1,9 +1,8 @@
-  var nbAnne = 1
-  var total = 0
-  var divSec = 0
-  var cps = 0
-  let time = null;
-  var mult10 = 1
+  var total = 0 // montant de commencement
+  var divSec = 0 //Controle le montant de points par seconde par diviser 1000 mms (ou une seconde) par le montant demandé
+  var cps = 0 //Cliques par seconde
+  let time = null; //Ceci fait que la premiere fois ça ne reinitialise pas l'horloge sur le premier tour (utilisé dans la fonction horloge)
+  var mult10 = 1 //
   var mult100 = 1
   var mult1000 = 1
   var prix10 = 10
@@ -12,34 +11,36 @@
   var num10 = 0
   var num100 = 0
   var num1000 = 0
-  var cycletut2 = true
+  var cycletut2 = true //Ça controle le cycle du deuxieme tutoriel et va seulement affiché une seule fois
 
+//Ceci affiche le deuxieme tutoriel
 function tut2 () {
+  //Si total est plus grand ou égal à 10 est cycletut2 est vrai, affiche le deuxieme tutoriel et remets cycletut2 à faux
   if ((total >= 10) && cycletut2) {
   document.getElementById('tut2').style.display = 'block' 
   document.getElementById('blurJS').style.display = 'block'
   cycletut2 = false
   }
 }
-
+//Controle le nombre d'améliorations
 function numberOf(elementId, valeur) {
   var Id = document.getElementById(elementId);
   Id.innerHTML = valeur;
 }
-
+//Cette fonction fait en sorte que les améliorations sont blockés
 function locked (prixIntial, id) {
-
+//Si le total est moins que le prix initial de l'amélioration, c'est bloqué
 if (total < prixIntial) {
   document.getElementById(id).style.backgroundColor = "#444444";
   document.getElementById(id).style.cursor = "not-allowed";
   }
-  
+//Ou si le total est plus grand ou égal au prix initiale
 else if (total >= prixIntial) {
   document.getElementById(id).style.backgroundColor = "#FFFFFF";
   document.getElementById(id).style.cursor = "pointer";
   }
 }
-
+//Affiche le tout pour la page mathEdition
 function affiche() {
   var affiche = document.getElementById("counter");
   affiche.innerHTML = total;
@@ -52,12 +53,12 @@ function affiche() {
   locked(prix1000, 'box1000')
   tut2()
 }
-
+//Cette fonction registre les cliques
 function clickCounter() {
   total++
   affiche()
 }
-
+//
 function add1(verdic) {
   if ((total >= prix10) && verdic) {
     divSec++;
@@ -111,8 +112,10 @@ function add100(verdic) {
     affiche();
   }
 }
-  
+  //Cette fonction permet de changer les cliques par seconde
 function horloge() {
+  //Si 
+  
   if (divSec !== 0) {
     cps = 1000 / divSec;
 

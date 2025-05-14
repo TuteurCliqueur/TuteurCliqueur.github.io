@@ -26,13 +26,13 @@ const upgrades = [
   },
   
   {
-    annee: 3,
-    prix: 1000,
+    annee: 3, //Annee scolaire pour le niveau de difficulté
+    prix: 1000, //prix de l'amélioration
     mult: 1, //Keep all multipliers to one
     numDe: 0, //Keep all numDe to zero
-    cps: 100,
-    mainId: 'prix3',
-    montantId: 'numberId3',
+    cps: 100, //par combien ça change le montant de cliques par secondes
+    mainId: 'prix3', //Id pour le prix et les cliques par secondes
+    montantId: 'numberId3', //Id pour le montant d'amélioration
   },
 
   ]

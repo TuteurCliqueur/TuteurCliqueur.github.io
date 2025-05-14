@@ -1,4 +1,4 @@
-  var total = 0 // montant de commencement
+ var total = 0 // montant de commencement
   var divSec = 0 //Controle le montant de points par seconde par diviser 1000 mms (ou une seconde) par le montant demandé
   var cpstotal = 0 //Cliques par seconde
   let time = null; //Ceci fait que la premiere fois ça ne reinitialise pas l'horloge sur le premier tour (utilisé dans la fonction horloge)
@@ -26,15 +26,94 @@ const upgrades = [
   },
   
   {
-    annee: 3, //Annee scolaire pour le niveau de difficulté
-    prix: 1000, //prix de l'amélioration
+    annee: 3,
+    prix: 1000,
     mult: 1, //Keep all multipliers to one
     numDe: 0, //Keep all numDe to zero
-    cps: 100, //par combien ça change le montant de cliques par secondes
-    mainId: 'prix3', //Id pour le prix et les cliques par secondes
-    montantId: 'numberId3', //Id pour le montant d'amélioration
+    cps: 100,
+    mainId: 'prix3',
+    montantId: 'numberId3',
   },
-
+  
+  {
+    annee: 4,
+    prix: 10000,
+    mult: 1, //Keep all multipliers to one
+    numDe: 0, //Keep all numDe to zero
+    cps: 500,
+    mainId: 'prix4',
+    montantId: 'numberId4',
+  },  
+  
+  {
+    annee: 5,
+    prix: 50000,
+    mult: 1, //Keep all multipliers to one
+    numDe: 0, //Keep all numDe to zero
+    cps: 1000,
+    mainId: 'prix5',
+    montantId: 'numberId5',
+  },
+    
+  {
+    annee: 6,
+    prix: 100000,
+    mult: 1, //Keep all multipliers to one
+    numDe: 0, //Keep all numDe to zero
+    cps: 1750,
+    mainId: 'prix6',
+    montantId: 'numberId6',
+  },
+    
+  {
+    annee: 7,
+    prix: 175000,
+    mult: 1, //Keep all multipliers to one
+    numDe: 0, //Keep all numDe to zero
+    cps: 2250,
+    mainId: 'prix7',
+    montantId: 'numberId7',
+  },
+    
+  {
+    annee: 8,
+    prix: 300000,
+    mult: 1, //Keep all multipliers to one
+    numDe: 0, //Keep all numDe to zero
+    cps: 2750,
+    mainId: 'prix8',
+    montantId: 'numberId8',
+  },
+    
+  {
+    annee: 9,
+    prix: 450000,
+    mult: 1, //Keep all multipliers to one
+    numDe: 0, //Keep all numDe to zero
+    cps: 4000,
+    mainId: 'prix9',
+    montantId: 'numberId9',
+  },
+    
+  {
+    annee: 10,
+    prix: 6500,
+    mult: 1, //Keep all multipliers to one
+    numDe: 0, //Keep all numDe to zero
+    cps: 6000,
+    mainId: 'prix10',
+    montantId: 'numberId10',
+  },
+    
+  {
+    annee: 11,
+    prix: 1000000,
+    mult: 1, //Keep all multipliers to one
+    numDe: 0, //Keep all numDe to zero
+    cps: 10000,
+    mainId: 'prix11',
+    montantId: 'numberId11',
+  },
   ]
 
 
@@ -76,6 +155,7 @@ function affiche() {
   locked(upgrades[0].prix, 'box1')
   locked(upgrades[1].prix, 'box2')
   locked(upgrades[2].prix, 'box3')
+  locked(upgrades[3].prix, 'box4')
   tut2()
 }
 //Cette fonction registre les cliques

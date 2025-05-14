@@ -221,7 +221,7 @@ function upgradeSlots (index) {
       answer.innerHTML = 'Answer : ' + egal;
       document.getElementById('prt2').style.animationName = 'correct';
       document.getElementById('prt2').style.animationDuration = '1s';
-      const audioVrai = new Audio('https://tuteurcliqueur.github.io/correct-156911.mp3');
+      const audioVrai = new Audio('https://tuteurcliqueur.github.io/sons/correct-156911.mp3');
       audioVrai.play();
       
       divSec += upg.cps;
@@ -240,7 +240,7 @@ function upgradeSlots (index) {
       answer.innerHTML = 'Answer : ' + egal;
       document.getElementById('prt2').style.animationName = 'incorrect';
       document.getElementById('prt2').style.animationDuration = '1s';
-      const audioFaux = new Audio('https://tuteurcliqueur.github.io/wrong-47985.mp3');
+      const audioFaux = new Audio('https://tuteurcliqueur.github.io/sons/wrong-47985.mp3');
       audioFaux.play();
       
       total -= upg.prix;

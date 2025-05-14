@@ -2,55 +2,59 @@
 <html style="font-family:'calibri'">
   <head>
     <meta charset="UTF-8">
-		<title>Tuteur Cliqueur</title>
-		<link rel="stylesheet" href="indexStyles.css">
+	<title>Tuteur Cliqueur</title>
+	<link rel="stylesheet" href="indexStyles.css">
+
+	<!--Styles pour le corps-->
 		<style>
-	    body {
-		    text-align: center;
-		    background-image: url("https://lhebdo.ca/wp-content/uploads/2023/11/10-Benefits-Showing-Why-Education-Is-Important-to-Our-Society.jpg");
-		    background-size: 100%;
-		  }
+	    	body {
+		text-align: center;
+		background-image: url("https://lhebdo.ca/wp-content/uploads/2023/11/10-Benefits-Showing-Why-Education-Is-Important-to-Our-Society.jpg");
+		background-size: 100%;
+		     }
 		</style>
   </head>
-	
+
   <body style="background-color: #f5f0e1;">
-    <form>
-    <nav class="navbar">
-	    <ul>
-	      <li><a href="https://tuteurcliqueur.github.io/index.html">Accueil</a></li>
-	      <li><a href="https://tuteurcliqueur.github.io/mathEdition.html">Édition Mathématique</a></li>
-	      <li class="navlock"><a onclick="lockAlert()">🔒 Édition Géographie 🔒</a></li>
-	      <li class="navlock"><a onclick="lockAlert()">🔒 Édition Histoire 🔒</a></li>
-	    </ul>
-	  </nav>
-      <h1 class="title">TUTEUR CLIQUEUR</h1>
-      
+
+	<!-- Menu au haut de page -->	  
+	<form>
+    	   <nav class="navbar">
+	      <ul>
+	      	<li><a href="https://tuteurcliqueur.github.io/index.html">Accueil</a></li>
+	      	<li><a href="https://tuteurcliqueur.github.io/mathEdition.html">Édition Mathématique</a></li>
+	      	<li class="navlock"><a onclick="lockAlert()">🔒 Édition Géographie 🔒</a></li>
+	      	<li class="navlock"><a onclick="lockAlert()">🔒 Édition Histoire 🔒</a></li>
+	     </ul>
+	   </nav>
+<h1 class="title">TUTEUR CLIQUEUR</h1>
+  <!--Boites pour les differentes versions--> 
   <center>
-		<table>
-		  <tr>
+	<table>
+		<tr>
 		    <th><a style="padding:75px; margin:20px" class="mathematiqueBubble" href="https://tuteurcliqueur.github.io/mathEdition.html"><p class="mathematiqueText">Édition Mathématique</p></a></th>
 		    
-		    <th style="padding:75px; margin:20px" class="geographieBubble" onclick="lockAlert()">
+          <th style="padding:75px; margin:20px" class="geographieBubble" onclick="lockAlert()">
           <img src="https://assets.onecompiler.app/43abp64dh/43hccjhtv/lockbomboclatt.png" class="overlay-icon" alt="Map Icon">
           <a class="geographieText">Édition Géographie</a>
-        </th>
+          </th>
 
-        <th style="padding:75px; margin:20px" class="histoireBubble" onclick="lockAlert()">
+          <th style="padding:75px; margin:20px" class="histoireBubble" onclick="lockAlert()">
           <img src="https://assets.onecompiler.app/43abp64dh/43hccjhtv/lockbomboclatt.png" class="overlay-icon" alt="History Icon">
           <a class="histoireText">Édition <br>Histoire</a>
-        </th>
-		  </tr>
-		</table>
-	</center>
+          </th>
+	        </tr>
+	</table>
+  </center>
 		
-		<script>
+      <script>
 	 //fonction pour jouer l'audio quand tu cliques sur les éditions non sorties sur les div
         function lockAlert() {
-var audio = new Audio('error_CDOxCYm.mp3');			
-audio.play();
-alert('🚨⚠️ Attendez ! Cette édition est en cours de réalisation, elle sera bientôt disponible... ⚠️🚨');
-}
-    </script>
-</form>
+		var audio = new Audio('error_CDOxCYm.mp3');			
+		audio.play();
+		alert('🚨⚠️ Attendez ! Cette édition est en cours de réalisation, elle sera bientôt disponible... ⚠️🚨');
+                }
+      </script>
+    </form>
   </body>
 </html>

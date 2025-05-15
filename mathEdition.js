@@ -6,11 +6,11 @@
 
 const upgrades = [
   {
-    annee: 1,
-    prix: 10,
-    mult: 1, //Keep all multipliers to one
-    numDe: 0, //Keep all numDe to zero
-    cps: 1,
+    annee: 1, //Année scolaire pour les améliorations (niveau de difficulté)
+    prix: 10, //Prix pour les améliorations
+    mult: 1, //Garder tous multipliers à un
+    numDe: 0, //Garder tous numDe à zéro
+    cps: 1, //Par combine les cliques par secondes sont modiifiés par
     mainId: 'prix1',
     montantId: 'numberId1',
   },
@@ -18,8 +18,8 @@ const upgrades = [
   {
     annee: 2,
     prix: 100,
-    mult: 1, //Keep all multipliers to one
-    numDe: 0, //Keep all numDe to zero
+    mult: 1, 
+    numDe: 0, 
     cps: 10,
     mainId: 'prix2',
     montantId: 'numberId2',
@@ -28,8 +28,8 @@ const upgrades = [
   {
     annee: 3,
     prix: 1000,
-    mult: 1, //Keep all multipliers to one
-    numDe: 0, //Keep all numDe to zero
+    mult: 1, 
+    numDe: 0, 
     cps: 100,
     mainId: 'prix3',
     montantId: 'numberId3',
@@ -38,8 +38,8 @@ const upgrades = [
   {
     annee: 4,
     prix: 10000,
-    mult: 1, //Keep all multipliers to one
-    numDe: 0, //Keep all numDe to zero
+    mult: 1, 
+    numDe: 0, 
     cps: 500,
     mainId: 'prix4',
     montantId: 'numberId4',
@@ -48,8 +48,8 @@ const upgrades = [
   {
     annee: 5,
     prix: 50000,
-    mult: 1, //Keep all multipliers to one
-    numDe: 0, //Keep all numDe to zero
+    mult: 1,
+    numDe: 0, 
     cps: 1000,
     mainId: 'prix5',
     montantId: 'numberId5',
@@ -58,8 +58,8 @@ const upgrades = [
   {
     annee: 6,
     prix: 100000,
-    mult: 1, //Keep all multipliers to one
-    numDe: 0, //Keep all numDe to zero
+    mult: 1, 
+    numDe: 0, 
     cps: 1750,
     mainId: 'prix6',
     montantId: 'numberId6',
@@ -68,8 +68,8 @@ const upgrades = [
   {
     annee: 7,
     prix: 175000,
-    mult: 1, //Keep all multipliers to one
-    numDe: 0, //Keep all numDe to zero
+    mult: 1, 
+    numDe: 0, 
     cps: 2250,
     mainId: 'prix7',
     montantId: 'numberId7',
@@ -78,8 +78,8 @@ const upgrades = [
   {
     annee: 8,
     prix: 300000,
-    mult: 1, //Keep all multipliers to one
-    numDe: 0, //Keep all numDe to zero
+    mult: 1, 
+    numDe: 0, 
     cps: 2750,
     mainId: 'prix8',
     montantId: 'numberId8',
@@ -88,8 +88,8 @@ const upgrades = [
   {
     annee: 9,
     prix: 450000,
-    mult: 1, //Keep all multipliers to one
-    numDe: 0, //Keep all numDe to zero
+    mult: 1, 
+    numDe: 0, 
     cps: 4000,
     mainId: 'prix9',
     montantId: 'numberId9',
@@ -98,8 +98,8 @@ const upgrades = [
   {
     annee: 10,
     prix: 6500,
-    mult: 1, //Keep all multipliers to one
-    numDe: 0, //Keep all numDe to zero
+    mult: 1, 
+    numDe: 0, 
     cps: 6000,
     mainId: 'prix10',
     montantId: 'numberId10',
@@ -108,8 +108,8 @@ const upgrades = [
   {
     annee: 11,
     prix: 1000000,
-    mult: 1, //Keep all multipliers to one
-    numDe: 0, //Keep all numDe to zero
+    mult: 1, 
+    numDe: 0, 
     cps: 10000,
     mainId: 'prix11',
     montantId: 'numberId11',
@@ -166,20 +166,21 @@ function clickCounter() {
 
   //Cette fonction permet de changer les cliques par seconde
 function horloge() {
-  //Si 
+  //Si divSec n'est pas égal à 0 fait les cliques par secondes
   if (divSec !== 0) {
     cpstotal = 1000 / divSec;
+    //Si temps n'est pas la valeur defaut, reinitialise le temps et mise à jour le compteur
     if (time !== null) {
       clearInterval(time); 
     }
-    time = setInterval(clickCounter, cpstotal); 
+    time = setInterval(clickCounter, cpstotal); //Mise à jour du compteur
   }
 }
 
-var calc = document.getElementById('calc')
+var calc = document.getElementById('calc') 
 
     calc.addEventListener('click', function(event) {
-
+//Ceci sert pour toute les popups par rapport à la calculatrice q'uon clique ainsi que les "+1" qui apparaissent sur l'écran
     const popup = document.createElement('div');
     popup.className = 'popup';
     popup.textContent = '+1';
@@ -193,7 +194,7 @@ var calc = document.getElementById('calc')
       popup.remove();
     }, 2000);
   });
-  
+//Cette fonction sert au améliorations et aux questions liées pour les améliorations
 function upgradeSlots (index) { 
   
   const upg = upgrades[index]
@@ -207,7 +208,8 @@ function upgradeSlots (index) {
   var egal = num1 + num2
   var verdic = document.getElementById('verdic')
   var question = document.getElementById('question')
-  var answer = document.getElementById('answer')
+  var answer = document.getElemen
+    tById('answer')
   question.innerHTML = num1 + ' + ' + num2 + ' = ?'
   
   document.getElementById("verify").onclick = function () {

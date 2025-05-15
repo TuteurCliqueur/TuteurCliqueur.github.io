@@ -105,8 +105,8 @@ const upgrades = [
     cps: 2750,
     mainId: 'prix8',
     montantId: 'numberId8',
-    numOf: 2,
-    range: 10,
+    numOf: 4,
+    range: 5,
     opertbl: [' √ ', ' ** '], //WHEN DOING SQUARE ROOT, MAKE IT FIRST IN ARRAY, this one is complicated
   },
     
@@ -237,23 +237,21 @@ function upgradeSlots (index) {
   var question = document.getElementById('question')
   var answer = document.getElementById('answer')
   var questionVar = ''
-  let raccine = false
   for (let i = 0; i < upg.numOf; i++) {
     
     number = parseInt(Math.random() * upg.range)
     operand = upg.opertbl[parseInt(Math.random() * (upg.opertbl.length))]
 
-        if (operand.includes('√')) {
+      if (operand.includes('√')) {
       number **= 2;
       questionVar += '√' + number.toString();
       
       if (i != (upg.numOf - 1)) {
-        questionVar += upg.opertbl[parseInt(Math.random() * (upg.opertbl.length - 1) + 1)]; 
-        
+        ranOperand = upg.opertbl[parseInt(Math.random() * (upg.opertbl.length - 1) + 1)]; 
+        questionVar += ranOperand;
         /* Quand c'est un raccine carré, il doit avoir une autre operand 
         apres donc, ceci pige une autre operand autre que le premier du 
         'array' (ou le raccine carré dans cette cas*) */
-        
         }
       } 
     
@@ -263,6 +261,11 @@ function upgradeSlots (index) {
       questionVar += operand;
       }
     }
+    
+    if ((operand.includes('**') || ranOperand.includes('**')) && (i != (upg.numOf - 1))) {
+      questionVar += parseInt(Math.random() * upg.range);
+      questionVar += ' + '
+    } 
   }
 }
   question.innerHTML = questionVar

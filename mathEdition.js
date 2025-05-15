@@ -1,4 +1,4 @@
-  var total = 0 // montant de commencement
+ var total = 300000 // montant de commencement
   var divSec = 0 //Controle le montant de points par seconde par diviser 1000 mms (ou une seconde) par le montant demandé
   var cpstotal = 0 //Cliques par seconde
   let time = null; //Ceci fait que la premiere fois ça ne reinitialise pas l'horloge sur le premier tour (utilisé dans la fonction horloge)
@@ -6,90 +6,115 @@
 
 const upgrades = [
   {
-    annee: 1, //Année scolaire pour les améliorations (niveau de difficulté)
-    prix: 10, //Prix pour les améliorations
-    mult: 1, //Garder tous multipliers à un
-    numDe: 0, //Garder tous numDe à zéro
-    cps: 1, //Par combine les cliques par secondes sont modiifiés par
+    annee: 1,
+    prix: 10,
+    mult: 1, //Keep all multipliers to one
+    numDe: 0, //Keep all numDe to zero
+    cps: 1,
     mainId: 'prix1',
     montantId: 'numberId1',
+    //Question part
+    numOf: 2,
+    range: 10,
+    opertbl: [' + '], //Put spaces when putting operations
   },
   
   {
     annee: 2,
     prix: 100,
-    mult: 1, 
-    numDe: 0, 
+    mult: 1, //Keep all multipliers to one
+    numDe: 0, //Keep all numDe to zero
     cps: 10,
     mainId: 'prix2',
     montantId: 'numberId2',
+    numOf: 2,
+    range: 20,
+    opertbl: [' - '], //Put spaces when putting operations
   },
   
   {
     annee: 3,
     prix: 1000,
-    mult: 1, 
-    numDe: 0, 
+    mult: 1, //Keep all multipliers to one
+    numDe: 0, //Keep all numDe to zero
     cps: 100,
     mainId: 'prix3',
     montantId: 'numberId3',
+    numOf: 4,
+    range: 10,
+    opertbl: [' + ', ' - '], //Put spaces when putting operations
   },
   
   {
     annee: 4,
     prix: 10000,
-    mult: 1, 
-    numDe: 0, 
+    mult: 1, //Keep all multipliers to one
+    numDe: 0, //Keep all numDe to zero
     cps: 500,
     mainId: 'prix4',
     montantId: 'numberId4',
+    numOf: 2,
+    range: 10,
+    opertbl: [' * '], //Put spaces when putting operations
   },  
   
   {
     annee: 5,
     prix: 50000,
-    mult: 1,
-    numDe: 0, 
+    mult: 1, //Keep all multipliers to one
+    numDe: 0, //Keep all numDe to zero
     cps: 1000,
     mainId: 'prix5',
     montantId: 'numberId5',
+    numOf: 2,
+    range: 15,
+    opertbl: [' / '], //Put spaces when putting operations
   },
     
   {
     annee: 6,
     prix: 100000,
-    mult: 1, 
-    numDe: 0, 
+    mult: 1, //Keep all multipliers to one
+    numDe: 0, //Keep all numDe to zero
     cps: 1750,
     mainId: 'prix6',
     montantId: 'numberId6',
+    numOf: 4,
+    range: 50,
+    opertbl: [' / ', ' * '], //Put spaces when putting operations
   },
     
   {
     annee: 7,
     prix: 175000,
-    mult: 1, 
-    numDe: 0, 
+    mult: 1, //Keep all multipliers to one
+    numDe: 0, //Keep all numDe to zero
     cps: 2250,
     mainId: 'prix7',
     montantId: 'numberId7',
+    numOf: 2,
+    range: 300,
+    opertbl: [' + ', ' * '], //Put spaces when putting operations
   },
     
   {
     annee: 8,
     prix: 300000,
-    mult: 1, 
-    numDe: 0, 
+    mult: 1, //Keep all multipliers to one
+    numDe: 0, //Keep all numDe to zero
     cps: 2750,
     mainId: 'prix8',
     montantId: 'numberId8',
+    numOf: 2,
+    range: 10,
+    opertbl: [' √ ', ' ** '], //WHEN DOING SQUARE ROOT, MAKE IT FIRST IN ARRAY, this one is complicated
   },
     
   {
     annee: 9,
     prix: 450000,
-    mult: 1, 
-    numDe: 0, 
+    mult: 1, //Keep all multipliers to one
+    numDe: 0, //Keep all numDe to zero
     cps: 4000,
     mainId: 'prix9',
     montantId: 'numberId9',
@@ -97,9 +122,9 @@ const upgrades = [
     
   {
     annee: 10,
-    prix: 6500,
-    mult: 1, 
-    numDe: 0, 
+    prix: 650000,
+    mult: 1, //Keep all multipliers to one
+    numDe: 0, //Keep all numDe to zero
     cps: 6000,
     mainId: 'prix10',
     montantId: 'numberId10',
@@ -108,8 +133,8 @@ const upgrades = [
   {
     annee: 11,
     prix: 1000000,
-    mult: 1, 
-    numDe: 0, 
+    mult: 1, //Keep all multipliers to one
+    numDe: 0, //Keep all numDe to zero
     cps: 10000,
     mainId: 'prix11',
     montantId: 'numberId11',
@@ -156,6 +181,13 @@ function affiche() {
   locked(upgrades[1].prix, 'box2')
   locked(upgrades[2].prix, 'box3')
   locked(upgrades[3].prix, 'box4')
+  locked(upgrades[4].prix, 'box5')
+  locked(upgrades[5].prix, 'box6')
+  locked(upgrades[6].prix, 'box7')
+  locked(upgrades[7].prix, 'box8')
+  locked(upgrades[8].prix, 'box9')
+  locked(upgrades[9].prix, 'box10')
+  locked(upgrades[10].prix, 'box11')
   tut2()
 }
 //Cette fonction registre les cliques
@@ -166,21 +198,20 @@ function clickCounter() {
 
   //Cette fonction permet de changer les cliques par seconde
 function horloge() {
-  //Si divSec n'est pas égal à 0 fait les cliques par secondes
+  //Si 
   if (divSec !== 0) {
     cpstotal = 1000 / divSec;
-    //Si temps n'est pas la valeur defaut, reinitialise le temps et mise à jour le compteur
     if (time !== null) {
       clearInterval(time); 
     }
-    time = setInterval(clickCounter, cpstotal); //Mise à jour du compteur
+    time = setInterval(clickCounter, cpstotal); 
   }
 }
 
-var calc = document.getElementById('calc') 
+var calc = document.getElementById('calc')
 
     calc.addEventListener('click', function(event) {
-//Ceci sert pour toute les popups par rapport à la calculatrice q'uon clique ainsi que les "+1" qui apparaissent sur l'écran
+
     const popup = document.createElement('div');
     popup.className = 'popup';
     popup.textContent = '+1';
@@ -194,7 +225,7 @@ var calc = document.getElementById('calc')
       popup.remove();
     }, 2000);
   });
-//Cette fonction sert au améliorations et aux questions liées pour les améliorations
+  
 function upgradeSlots (index) { 
   
   const upg = upgrades[index]
@@ -202,15 +233,53 @@ function upgradeSlots (index) {
   if (total >= upg.prix) {
   document.getElementById('prt1').style.display = 'block'
   document.getElementById('blurJS').style.display = 'block'
-  
-  var num1 = parseInt(Math.random()*10)
-  var num2 = parseInt(Math.random()*10)
-  var egal = num1 + num2
   var verdic = document.getElementById('verdic')
   var question = document.getElementById('question')
-  var answer = document.getElemen
-    tById('answer')
-  question.innerHTML = num1 + ' + ' + num2 + ' = ?'
+  var answer = document.getElementById('answer')
+  var questionVar = ''
+  let raccine = false
+  for (let i = 0; i < upg.numOf; i++) {
+    
+    number = parseInt(Math.random() * upg.range)
+    operand = upg.opertbl[parseInt(Math.random() * (upg.opertbl.length))]
+
+        if (operand.includes('√')) {
+      number **= 2;
+      questionVar += '√' + number.toString();
+      
+      if (i != (upg.numOf - 1)) {
+        questionVar += upg.opertbl[parseInt(Math.random() * (upg.opertbl.length - 1) + 1)]; 
+        
+        /* Quand c'est un raccine carré, il doit avoir une autre operand 
+        apres donc, ceci pige une autre operand autre que le premier du 
+        'array' (ou le raccine carré dans cette cas*) */
+        
+        }
+      } 
+    
+    else {
+      questionVar += number.toString();
+      if (i != (upg.numOf - 1)) {
+      questionVar += operand;
+      }
+    }
+  }
+}
+  question.innerHTML = questionVar
+  
+  if (questionVar.includes('√')) {
+    
+    questionVar = questionVar.replace(/√(\d+)/g, "Math.sqrt($1)") 
+    
+    /* 'g' est pour global, pour changer tous les '√'. 
+    \d+ veut dire les chiffres apres le '√' et le '$1' 
+    appelle la groupe que j'ai crée avant la virgule. 
+    Ceci vas en bref, prendre un equation comme '5 + √5' 
+    et changer pour l'ordi à '5 + Math.sqrt(5)' */
+    
+  }
+  
+  var egal = eval(questionVar)
   
   document.getElementById("verify").onclick = function () {
     
@@ -249,6 +318,5 @@ function upgradeSlots (index) {
       affiche();
         }
       }
-  }
 }
   

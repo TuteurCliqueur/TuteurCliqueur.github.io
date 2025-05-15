@@ -7,7 +7,7 @@
   </head>
   <body>
     <form>
-    	<nav class="navbar">
+    	<nav class="navbar"> <!--Menu au haut de page-->
 	    <ul>
 	      <li><a href="https://tuteurcliqueur.github.io/index.html">Accueil</a></li>
 	      <li><a href="https://tuteurcliqueur.github.io/mathEdition.html">Édition Mathématique</a></li>
@@ -15,9 +15,9 @@
 	      <li class="navlock"><a onclick="lockAudio()">🔒 Édition Histoire 🔒</a></li>
 	    </ul>
 	 </nav>
-	  
+<!--Page explicative du but du jeu-->
   <div class="hi" id="tut1">
-   <h1>CLICK GAME.</h1>
+   <h1>JEU CLIQUEUR.</h1>
      <p style='font-size: 75%; font-weight: bold;'>
     	Notre jeu combine l'apprentissage des 
     	mathématiques avec un gameplay captivant. 
@@ -31,9 +31,9 @@
      </p>
     	<input type="button" onclick="document.getElementById('tut1').style.display = 'none'; document.getElementById('blurJS').style.display = 'none';" value='Fermer'>
   </div>
-
+<!--Page d/montrant comment achter les am/liorations-->
   <div class="hi" id="tut2" style="display: none;">
-    <h1>YOU CAN BUY NOW.</h1>
+    <h1>TU PEUX ACHETER MAINTENANT.</h1>
       <p style='font-size: 75%; font-weight: bold;'>
   	Une fois que vous avez accumulé suffisamment de points, 
   	vous pouvez acheter des améliorations. Chaque amélioration 
@@ -47,7 +47,7 @@
       </p>
     <input type="button" onclick="document.getElementById('tut2').style.display = 'none'; document.getElementById('blurJS').style.display = 'none';" value='Fermer'>
   </div>
-
+<!--div pour la calculatrice-->
   <div class="size1 left ">
     <h1 id="counter" style="color: #ffffff; margin-top: 5%">0</h1>
     <h2 id="counterPar" style="color: #ffffff; margin-top: 5%">0 cliques par seconde</h2>
@@ -58,7 +58,7 @@
 
   <div class="size2 right">
     <h1 style='color: #ffffff'>Magasin</h1>
-    <ul style="color: #ffffff;" class="upgrade">
+      <ul style="color: #ffffff;" class="upgrade">
   <!-- add(numAnné, varPrix, varMult, divNum, affichePrixId, varNumDe, afficheNumberId) -->
   
         <li id="box1" onclick="upgradeSlots(0);">
@@ -118,7 +118,7 @@
         
 </ul>
 </div>
-
+//
 <div id='prt1' class='hi' style='display: none;'>
   <h1>Hi fella</h1>
     <div id='question'></div>
@@ -135,8 +135,6 @@
   <div id='blurJS' class='questionBackBlur'> 
 </div>
 
-        <script src="mathEdition.js">
-      </script>
-    </form>
+    <script src="mathEdition.js"></script>
   </body>
 </html>

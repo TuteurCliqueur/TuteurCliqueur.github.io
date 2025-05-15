@@ -1,4 +1,4 @@
- var total = 0 // montant initiale
+ var total = 111110 // montant de commencement
   var divSec = 0 //Controle le montant de points par seconde par diviser 1000 mms (ou une seconde) par le montant demandé
   var cpstotal = 0 //Cliques par seconde
   let time = null; //Ceci fait que la premiere fois ça ne reinitialise pas l'horloge sur le premier tour (utilisé dans la fonction horloge)
@@ -92,7 +92,7 @@ const upgrades = [
     cps: 2250,
     mainId: 'prix7',
     montantId: 'numberId7',
-    numOf: 2,
+    numOf: 2, //Doit etre deux parceque c'est un rectangle
     range: 300,
     opertbl: [' + ', ' * '], //Put spaces when putting operations
   },
@@ -228,6 +228,8 @@ var calc = document.getElementById('calc')
   
 function upgradeSlots (index) { 
   
+  typeID.innerHTML = 'Effectué cette équation'
+  
   const upg = upgrades[index]
   
   if (total >= upg.prix) {
@@ -239,7 +241,7 @@ function upgradeSlots (index) {
   var questionVar = ''
   for (let i = 0; i < upg.numOf; i++) {
     
-    number = parseInt(Math.random() * upg.range)
+    number = parseInt(Math.random() * upg.range) + 1
     operand = upg.opertbl[parseInt(Math.random() * (upg.opertbl.length))]
 
       if (operand.includes('√')) {
@@ -255,6 +257,12 @@ function upgradeSlots (index) {
         }
       } 
     
+    else if (index == 6) {
+      var typeID = document.getElementById('type');
+      typeID.innerHTML = 'Trouve la perimêtre.'
+      questionVar += " " + number;
+    }
+    
     else {
       questionVar += number.toString();
       if (i != (upg.numOf - 1)) {
@@ -265,11 +273,12 @@ function upgradeSlots (index) {
     if (((operand || ranOperand).includes('**')) && (i != (upg.numOf - 1))) {
       questionVar += parseInt(Math.random() * upg.range);
       questionVar += ' + '
-    } 
+    }
   }
 }
+
   question.innerHTML = questionVar
-  
+
   if (questionVar.includes('√')) {
     
     questionVar = questionVar.replace(/√(\d+)/g, "Math.sqrt($1)") 
@@ -282,10 +291,17 @@ function upgradeSlots (index) {
     
   }
   
+  if (index == 6) {
+    questionVar = questionVar.split(' ')
+    egal = (questionVar[0]*2) + (questionVar[1]*2)
+  }
+  
+  else {
   var egal = eval(questionVar)
+  }
   
   document.getElementById("verify").onclick = function () {
-    
+
     var userAnswer = document.getElementById('userAnswer').value;
     document.getElementById('prt2').style.display = 'block';
     document.getElementById('prt1').style.display = 'none';

@@ -59,7 +59,7 @@
   <div class="size2 right">
     <h1 style='color: #ffffff'>Magasin</h1>
       <ul style="color: #ffffff;" class="upgrade">
-  <!-- add(numAnné, varPrix, varMult, divNum, affichePrixId, varNumDe, afficheNumberId) -->
+  <!-- ajoute(numAnné, varPrix, varMult, divNum, affichePrixId, varNumDe, afficheNumberId) pour les ameliorations -->
   
         <li id="box1" onclick="upgradeSlots(0);">
           <h1 id='numberId1' class='numberOf'> </h1>
@@ -118,20 +118,20 @@
         
 </ul>
 </div>
-//
+<!--div pour les questions--> 
 <div id='prt1' class='hi' style='display: none;'>
   <h1>Hi fella</h1>
     <div id='question'></div>
       <br></br>
         <input type="text" id='userAnswer'> 
         <input type="button" id='verify' value='Verify'>
-</div>
-<div id='prt2' class='hi' style='display: none; z-index: 4;'>
+</div> <!--Correcete ou faux div-->
+<div id='prt2' class='h'i style='display: none; z-index: 4;'>
   <h1 id='verdic'></h1>
     <div id='answer'></div>
       <br></br>
       <input type="button" onclick="document.getElementById('prt2').style.display = 'none'; document.getElementById('blurJS').style.display = 'none'" value='Fermer'>
-</div>
+</div> <!--Blur de l'arriere plan-->
   <div id='blurJS' class='questionBackBlur'> 
 </div>
 

@@ -262,7 +262,7 @@ function upgradeSlots (index) {
       }
     }
     
-    if ((operand.includes('**') || ranOperand.includes('**')) && (i != (upg.numOf - 1))) {
+    if (((operand || ranOperand).includes('**')) && (i != (upg.numOf - 1))) {
       questionVar += parseInt(Math.random() * upg.range);
       questionVar += ' + '
     } 

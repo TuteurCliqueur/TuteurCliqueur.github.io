@@ -1,4 +1,4 @@
- var total = 0 // montant de commencement
+var total = 1000000 // montant de commencement
   var divSec = 0 //Controle le montant de points par seconde par diviser 1000 mms (ou une seconde) par le montant demandé
   var cpstotal = 0 //Cliques par seconde
   let time = null; //Ceci fait que la premiere fois ça ne reinitialise pas l'horloge sur le premier tour (utilisé dans la fonction horloge)
@@ -18,7 +18,7 @@ const upgrades = [
     range: 10,
     opertbl: [' + '], //Put spaces when putting operations
   },
-  
+
   {
     annee: 2,
     prix: 100,
@@ -31,7 +31,7 @@ const upgrades = [
     range: 20,
     opertbl: [' - '], //Put spaces when putting operations
   },
-  
+
   {
     annee: 3,
     prix: 1000,
@@ -44,7 +44,7 @@ const upgrades = [
     range: 10,
     opertbl: [' + ', ' - '], //Put spaces when putting operations
   },
-  
+
   {
     annee: 4,
     prix: 10000,
@@ -57,7 +57,7 @@ const upgrades = [
     range: 10,
     opertbl: [' * '], //Put spaces when putting operations
   },  
-  
+
   {
     annee: 5,
     prix: 50000,
@@ -70,7 +70,7 @@ const upgrades = [
     range: 15,
     opertbl: [' / '], //Put spaces when putting operations
   },
-    
+
   {
     annee: 6,
     prix: 100000,
@@ -79,11 +79,12 @@ const upgrades = [
     cps: 1750,
     mainId: 'prix6',
     montantId: 'numberId6',
+    numOf: 4,
     numOf: 2,
     range: 50,
     opertbl: [' / ', ' * '], //Put spaces when putting operations
   },
-    
+
   {
     annee: 7,
     prix: 175000,
@@ -96,7 +97,7 @@ const upgrades = [
     range: 300,
     opertbl: [' + ', ' * '], //Put spaces when putting operations
   },
-    
+
   {
     annee: 8,
     prix: 300000,
@@ -109,7 +110,7 @@ const upgrades = [
     range: 5,
     opertbl: [' √ ', ' ** '], //WHEN DOING SQUARE ROOT, MAKE IT FIRST IN ARRAY, this one is complicated
   },
-    
+
   {
     annee: 9,
     prix: 450000,
@@ -119,7 +120,7 @@ const upgrades = [
     mainId: 'prix9',
     montantId: 'numberId9',
   },
-    
+
   {
     annee: 10,
     prix: 650000,
@@ -129,7 +130,7 @@ const upgrades = [
     mainId: 'prix10',
     montantId: 'numberId10',
   },
-    
+
   {
     annee: 11,
     prix: 1000000,
@@ -173,10 +174,10 @@ else if (total >= prixIntial) {
 function affiche() {
   var affiche = document.getElementById("counter");
   affiche.innerHTML = total;
-  
+
   var affiche2 = document.getElementById("counterPar");
   affiche2.innerHTML = divSec + ' cliques par seconde';
-  
+
   locked(upgrades[0].prix, 'box1')
   locked(upgrades[1].prix, 'box2')
   locked(upgrades[2].prix, 'box3')
@@ -225,13 +226,13 @@ var calc = document.getElementById('calc')
       popup.remove();
     }, 2000);
   });
-  
+
 function upgradeSlots (index) { 
-  
+
   const upg = upgrades[index]
   var qType = document.getElementById('type')
   qType.innerHTML = 'Effectué cette équation'
-  
+
   if (total >= upg.prix) {
   document.getElementById('prt1').style.display = 'block'
   document.getElementById('blurJS').style.display = 'block'
@@ -243,42 +244,43 @@ function upgradeSlots (index) {
   var questionVar = ''
   var dispQuestionVar = ''
   var egal = null
-  
+
   if (index == 6) {
     operand = upg.opertbl[parseInt(Math.random() * (upg.opertbl.length))]
     num1 = parseInt(Math.random() * upg.range) + 1
     num2 = parseInt(Math.random() * upg.range) + 1
-    
+
     if (operand.includes('+')) {
+    qType.innerHTML = 'Trouve la périmetre'
     qType.innerHTML = "Trouve le périmetre"
     egal = (num1 + num2)*2
     }
-    
+
     else {
     qType.innerHTML = "Trouve l'aire"
     egal = num1 * num2
     }
-    
+
     document.getElementById('question').style.display = 'none'
     document.getElementById('grRectId').style.display = 'grid'
     long.innerHTML = num2
     haut.innerHTML = num1
   }
-  
+
   else {
-    
+
     document.getElementById('question').style.display = 'block'
     document.getElementById('grRectId').style.display = 'none'
-    
+
   for (let i = 0; i < upg.numOf; i++) {
-    
+
     number = parseInt(Math.random() * upg.range) + 1
     operand = upg.opertbl[parseInt(Math.random() * (upg.opertbl.length))]
 
       if (operand.includes('√')) {
       number **= 2;
       questionVar += '√' + number.toString();
-      
+
       if (i != (upg.numOf - 1)) {
         ranOperand = upg.opertbl[parseInt(Math.random() * (upg.opertbl.length - 1) + 1)]; 
         questionVar += ranOperand;
@@ -294,7 +296,8 @@ function upgradeSlots (index) {
       questionVar += operand;
       }
     }
-    
+
+    if (((operand || ranOperand).includes('**')) && (i != (upg.numOf - 1))) {
     if ((operand.includes('**') || ranOperand.includes('**')) && (i != (upg.numOf - 1))) {
       questionVar += parseInt(Math.random() * upg.range);
       questionVar += ' + '
@@ -304,15 +307,15 @@ function upgradeSlots (index) {
   dispQuestionVar = questionVar
 
   if (questionVar.includes('√')) {
-    
+
     questionVar = questionVar.replace(/√(\d+)/g, "Math.sqrt($1)") 
-    
+
     /* 'g' est pour global, pour changer tous les '√'. 
     \d+ veut dire les chiffres apres le '√' et le '$1' 
     appelle la groupe que j'ai crée avant la virgule. 
     Ceci vas en bref, prendre un equation comme '5 + √5' 
     et changer pour l'ordi à '5 + Math.sqrt(5)' */
-    
+
   }
   question.innerHTML = dispQuestionVar
   egal = eval(questionVar)
@@ -320,7 +323,7 @@ function upgradeSlots (index) {
   }
 
 }
-  
+
 
   document.getElementById("verify").onclick = function () {
 
@@ -335,7 +338,7 @@ function upgradeSlots (index) {
       document.getElementById('prt2').style.animationDuration = '1s';
       const audioVrai = new Audio('https://tuteurcliqueur.github.io/sons/correct-156911.mp3');
       audioVrai.play();
-      
+
       divSec += upg.cps;
       total -= upg.prix;
       horloge();
@@ -346,7 +349,7 @@ function upgradeSlots (index) {
       upg.numDe++
       numberOf(upg.montantId, upg.numDe)
     }
-      
+
       else {
       verdic.innerHTML = 'Incorect...';
       answer.innerHTML = 'Answer : ' + egal;
@@ -354,36 +357,9 @@ function upgradeSlots (index) {
       document.getElementById('prt2').style.animationDuration = '1s';
       const audioFaux = new Audio('https://tuteurcliqueur.github.io/sons/wrong-47985.mp3');
       audioFaux.play();
-      
+
       total -= upg.prix;
       affiche();
         }
       }
 }
-
-// Fonction pour la verification de si on a assez de points avant de montrer le quesitons
-function upgradeSlots(index) {
-  const upg = upgrades[index];
-  if (total < upg.prix) { // Si on n'a pas assez de points, ceci alert:
-    alert("Pas assez de points pour cette amélioration !");
-    return;
-  }
-  
-  document.getElementById('prt1').style.display = 'block';
-  document.getElementById('blurJS').style.display = 'block';
-
-  // Dit le text instructif de la question
-  document.getElementById('type').textContent = 'Résous cette équation';
-  
-}
-
-document.getElementById('verify').addEventListener('click', function () {
-  let userInput = document.getElementById('userAnswer').value;
-
-  // Vérifie si l'entrer est un nombre ou lettre (ou autre) 
-  if (isNaN(userInput) || userInput.trim() === '') {
-    alert("S.V.P entrer des nombres et non des lettres !");
-    return; //Arrêté de la verification
-  }
-
-});

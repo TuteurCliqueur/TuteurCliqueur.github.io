@@ -361,3 +361,18 @@ function upgradeSlots (index) {
       }
 }
   
+// Fonction pour la verification de si on a assez de points avant de montrer le quesitons
+function upgradeSlots(index) {
+  const upg = upgrades[index];
+  if (total < upg.prix) { // Si on n'a pas assez de points, ceci alert:
+    alert("Pas assez de points pour cette amélioration !");
+    return;
+  }
+  
+  document.getElementById('prt1').style.display = 'block';
+  document.getElementById('blurJS').style.display = 'block';
+
+  // Dit le text instructif de la question
+  document.getElementById('type').textContent = 'Résous cette équation';
+  
+}

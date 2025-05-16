@@ -272,7 +272,8 @@ function upgradeSlots (index) {
     
   for (let i = 0; i < upg.numOf; i++) {
     
-    number = parseInt(Math.random() * upg.range) + 1                        
+    ranOperand = ''
+    number = parseInt(Math.random() * upg.range) + 1
     operand = upg.opertbl[parseInt(Math.random() * (upg.opertbl.length))]
 
       if (operand.includes('√')) {

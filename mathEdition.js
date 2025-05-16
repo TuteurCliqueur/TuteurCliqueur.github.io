@@ -360,4 +360,30 @@ function upgradeSlots (index) {
         }
       }
 }
+
+// Fonction pour la verification de si on a assez de points avant de montrer le quesitons
+function upgradeSlots(index) {
+  const upg = upgrades[index];
+  if (total < upg.prix) { // Si on n'a pas assez de points, ceci alert:
+    alert("Pas assez de points pour cette amélioration !");
+    return;
+  }
   
+  document.getElementById('prt1').style.display = 'block';
+  document.getElementById('blurJS').style.display = 'block';
+
+  // Dit le text instructif de la question
+  document.getElementById('type').textContent = 'Résous cette équation';
+  
+}
+
+document.getElementById('verify').addEventListener('click', function () {
+  let userInput = document.getElementById('userAnswer').value;
+
+  // Vérifie si l'entrer est un nombre ou lettre (ou autre) 
+  if (isNaN(userInput) || userInput.trim() === '') {
+    alert("S.V.P entrer des nombres et non des lettres !");
+    return; //Arrêté de la verification
+  }
+
+});

@@ -272,7 +272,7 @@ function upgradeSlots (index) {
     
   for (let i = 0; i < upg.numOf; i++) {
     
-    number = parseInt(Math.random() * upg.range) + 1
+    number = parseInt(Math.random() * upg.range) + 1                        
     operand = upg.opertbl[parseInt(Math.random() * (upg.opertbl.length))]
 
       if (operand.includes('√')) {
@@ -295,8 +295,8 @@ function upgradeSlots (index) {
       }
     }
     
-    if (((operand || ranOperand).includes('**')) && (i != (upg.numOf - 1))) {
-      questionVar += parseInt(Math.random() * upg.range);
+    if ((operand.includes('**') || ranOperand.includes('**')) && (i != (upg.numOf - 1))) {
+      questionVar += parseInt(Math.random() * upg.range) + 1;
       questionVar += ' + '
     }
   }

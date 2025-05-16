@@ -1,4 +1,4 @@
- var total = 111110 // montant de commencement
+ var total = 1000000 // montant de commencement
   var divSec = 0 //Controle le montant de points par seconde par diviser 1000 mms (ou une seconde) par le montant demandé
   var cpstotal = 0 //Cliques par seconde
   let time = null; //Ceci fait que la premiere fois ça ne reinitialise pas l'horloge sur le premier tour (utilisé dans la fonction horloge)
@@ -228,9 +228,9 @@ var calc = document.getElementById('calc')
   
 function upgradeSlots (index) { 
   
-  typeID.innerHTML = 'Effectué cette équation'
-  
   const upg = upgrades[index]
+  var qType = document.getElementById('type')
+  qType.innerHTML = 'Effectué cette équation'
   
   if (total >= upg.prix) {
   document.getElementById('prt1').style.display = 'block'
@@ -238,7 +238,38 @@ function upgradeSlots (index) {
   var verdic = document.getElementById('verdic')
   var question = document.getElementById('question')
   var answer = document.getElementById('answer')
+  var haut = document.getElementById('hauteur')
+  var long = document.getElementById('longeur')
   var questionVar = ''
+  var dispQuestionVar = ''
+  var egal = null
+  
+  if (index == 6) {
+    operand = upg.opertbl[parseInt(Math.random() * (upg.opertbl.length))]
+    num1 = parseInt(Math.random() * upg.range) + 1
+    num2 = parseInt(Math.random() * upg.range) + 1
+    
+    if (operand.includes('+')) {
+    qType.innerHTML = 'Trouve la périmetre'
+    egal = (num1 + num2)*2
+    }
+    
+    else {
+    qType.innerHTML = "Trouve l'aire"
+    egal = num1 * num2
+    }
+    
+    document.getElementById('question').style.display = 'none'
+    document.getElementById('grRectId').style.display = 'grid'
+    long.innerHTML = num2
+    haut.innerHTML = num1
+  }
+  
+  else {
+    
+    document.getElementById('question').style.display = 'block'
+    document.getElementById('grRectId').style.display = 'none'
+    
   for (let i = 0; i < upg.numOf; i++) {
     
     number = parseInt(Math.random() * upg.range) + 1
@@ -256,13 +287,7 @@ function upgradeSlots (index) {
         'array' (ou le raccine carré dans cette cas*) */
         }
       } 
-    
-    else if (index == 6) {
-      var typeID = document.getElementById('type');
-      typeID.innerHTML = 'Trouve la perimêtre.'
-      questionVar += " " + number;
-    }
-    
+
     else {
       questionVar += number.toString();
       if (i != (upg.numOf - 1)) {
@@ -275,9 +300,7 @@ function upgradeSlots (index) {
       questionVar += ' + '
     }
   }
-}
-
-  question.innerHTML = questionVar
+  dispQuestionVar = questionVar
 
   if (questionVar.includes('√')) {
     
@@ -290,16 +313,14 @@ function upgradeSlots (index) {
     et changer pour l'ordi à '5 + Math.sqrt(5)' */
     
   }
-  
-  if (index == 6) {
-    questionVar = questionVar.split(' ')
-    egal = (questionVar[0]*2) + (questionVar[1]*2)
+  question.innerHTML = dispQuestionVar
+  egal = eval(questionVar)
+
   }
+
+}
   
-  else {
-  var egal = eval(questionVar)
-  }
-  
+
   document.getElementById("verify").onclick = function () {
 
     var userAnswer = document.getElementById('userAnswer').value;

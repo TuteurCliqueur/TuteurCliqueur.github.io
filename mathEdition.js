@@ -79,7 +79,7 @@ const upgrades = [
     cps: 1750,
     mainId: 'prix6',
     montantId: 'numberId6',
-    numOf: 4,
+    numOf: 2,
     range: 50,
     opertbl: [' / ', ' * '], //Put spaces when putting operations
   },
@@ -250,7 +250,7 @@ function upgradeSlots (index) {
     num2 = parseInt(Math.random() * upg.range) + 1
     
     if (operand.includes('+')) {
-    qType.innerHTML = 'Trouve la périmetre'
+    qType.innerHTML = "Trouve le périmetre"
     egal = (num1 + num2)*2
     }
     
@@ -295,11 +295,12 @@ function upgradeSlots (index) {
       }
     }
     
-    if (((operand || ranOperand).includes('**')) && (i != (upg.numOf - 1))) {
+    if ((operand.includes('**') || ranOperand.includes('**')) && (i != (upg.numOf - 1))) {
       questionVar += parseInt(Math.random() * upg.range);
       questionVar += ' + '
     }
   }
+  
   dispQuestionVar = questionVar
 
   if (questionVar.includes('√')) {

@@ -93,7 +93,7 @@ const upgrades = [
     mainId: 'prix7',
     montantId: 'numberId7',
     numOf: 2, //Doit etre deux parceque c'est un rectangle
-    range: 300,
+    range: 75,
     opertbl: [' + ', ' * '], //Put spaces when putting operations
   },
     
@@ -118,6 +118,9 @@ const upgrades = [
     cps: 4000,
     mainId: 'prix9',
     montantId: 'numberId9',
+    numOf: 2, //Doit etre deux parceque c'est un rectangle
+    range: 300,
+    opertbl: [' + ', ' * '], //Put spaces when putting operations
   },
     
   {
@@ -128,6 +131,9 @@ const upgrades = [
     cps: 6000,
     mainId: 'prix10',
     montantId: 'numberId10',
+    numOf: 2, //Doit etre deux parceque c'est un rectangle
+    range: 300,
+    opertbl: ['sin', 'cos', 'tan'], //Put spaces when putting operations
   },
     
   {
@@ -225,7 +231,7 @@ var calc = document.getElementById('calc')
       popup.remove();
     }, 2000);
   });
-  
+
 function upgradeSlots (index) { 
   
   const upg = upgrades[index]
@@ -235,14 +241,18 @@ function upgradeSlots (index) {
   if (total >= upg.prix) {
   document.getElementById('prt1').style.display = 'block'
   document.getElementById('blurJS').style.display = 'block'
+  document.getElementById('theta').style.display = 'none'
   var verdic = document.getElementById('verdic')
   var question = document.getElementById('question')
   var answer = document.getElementById('answer')
   var haut = document.getElementById('hauteur')
+  var hypo = document.getElementById('hypotenuse')
   var long = document.getElementById('longeur')
+  var thet = document.getElementById('theta')
   var questionVar = ''
   var dispQuestionVar = ''
   var egal = null
+  hypo.innerHTML = ''
   
   if (index == 6) {
     operand = upg.opertbl[parseInt(Math.random() * (upg.opertbl.length))]
@@ -261,10 +271,52 @@ function upgradeSlots (index) {
     
     document.getElementById('question').style.display = 'none'
     document.getElementById('grRectId').style.display = 'grid'
+    document.getElementById('forme').className = 'rect'
+    
     long.innerHTML = num2
     haut.innerHTML = num1
   }
   
+  else if (index == 9) {
+  operand = upg.opertbl[parseInt(Math.random() * (upg.opertbl.length))];
+  num1 = parseInt(Math.random() * upg.range) + 1;
+  num2 = parseInt(Math.random() * 60) + 1;  // Angle in degrees
+  
+  thet.innerHTML = 'θ = ' + num2 + '°';
+
+  // Convert num2 (angle in degrees) to radians
+  var num2InRadians = num2 * (Math.PI / 180);
+
+  if (operand.includes('cos')) {
+    hypo.innerHTML = num1;
+    long.innerHTML = '?';
+    egal = (Math.cos(num2InRadians)) * num1;
+  } 
+  else if (operand.includes('sin')) {
+    hypo.innerHTML = num1;
+    haut.innerHTML = '?';
+    egal = (Math.sin(num2InRadians)) * num1;
+  } 
+  else {
+    let i = parseInt(Math.random() * 2);
+
+    if (i == 1) {
+      haut.innerHTML = num1;
+      long.innerHTML = '?';
+      egal = (Math.tan(num2InRadians)) * num1;
+    } 
+    else {
+      long.innerHTML = num1;
+      haut.innerHTML = '?';
+      egal = num1 / Math.tan(num2InRadians);
+    }
+  }
+
+  document.getElementById('question').style.display = 'none';
+  document.getElementById('grRectId').style.display = 'grid';
+  document.getElementById('theta').style.display = 'block';
+  document.getElementById('forme').className = 'tri';
+}
   else {
     
     document.getElementById('question').style.display = 'block'

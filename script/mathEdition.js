@@ -1,8 +1,11 @@
- var total = 1000000 // montant de commencement
+ var total = 0 // montant de commencement
   var divSec = 0 //Controle le montant de points par seconde par diviser 1000 mms (ou une seconde) par le montant demandé
   var cpstotal = 0 //Cliques par seconde
   let time = null; //Ceci fait que la premiere fois ça ne reinitialise pas l'horloge sur le premier tour (utilisé dans la fonction horloge)
   var cycletut2 = true //Ça controle le cycle du deuxieme tutoriel et va seulement affiché une seule fois
+  let tempAvant = performance.now();
+
+requestAnimationFrame(horloge);
 
 const upgrades = [
   {
@@ -119,7 +122,7 @@ const upgrades = [
     mainId: 'prix9',
     montantId: 'numberId9',
     numOf: 2, //Doit etre deux parceque c'est un rectangle
-    range: 150,
+    range: 300,
     opertbl: [' + ', ' * '], //Put spaces when putting operations
   },
     
@@ -179,7 +182,7 @@ else if (total >= prixIntial) {
 //Affiche le tout pour la page mathEdition
 function affiche() {
   var affiche = document.getElementById("counter");
-  affiche.innerHTML = total;
+  affiche.innerHTML = Math.round(total);
   
   var affiche2 = document.getElementById("counterPar");
   affiche2.innerHTML = divSec + ' cliques par seconde';
@@ -204,15 +207,17 @@ function clickCounter() {
 }
 
   //Cette fonction permet de changer les cliques par seconde
-function horloge() {
-  //Si 
-  if (divSec !== 0) {
-    cpstotal = 1000 / divSec;
-    if (time !== null) {
-      clearInterval(time); 
-    }
-    time = setInterval(clickCounter, cpstotal); 
+function horloge(tempIntial) {
+  const deltaTemp = (tempIntial - tempAvant) / 1000; // in seconds
+  tempAvant = tempIntial;
+
+  // CPS calculation based on delta time
+  if (divSec > 0) {
+    total += divSec * deltaTemp;
   }
+
+  affiche(); // update visuals
+  requestAnimationFrame(horloge);
 }
 
 var calc = document.getElementById('calc')
@@ -290,12 +295,9 @@ function upgradeSlots (index) {
     let quadrantText = ' si on est dans la quadrant '
     
     
-    
-    if ((signChoisi <= 0.5) && !dispCercleUnit.includes('0')) { //Pourque sa ajoute pas une signe négatif quand c'est 0
+    if ((signChoisi <= 0.5) && !(dispCercleUnit == '0')) { //Pourque sa ajoute pas une signe négatif quand c'est 0
       sign = '-'
     }
-
-
 
    dispCercleUnit = sign + dispCercleUnit
    cercleUnit = dispCercleUnit
@@ -307,7 +309,7 @@ function upgradeSlots (index) {
     if (operand.includes('cos')) {
       
       egal = Math.acos(eval(cercleUnit))
-      egal = Math.abs((egal * (180 / Math.PI)).toFixed()) 
+      egal = Math.abs(Math.round(egal * (180 / Math.PI))) 
       
       /*Javascript n'est pas exact avec ses calculs, donc j'utilise toFixed 
       car je veux arrondir (defaut est 0). C'est aussi en Radian donc je dois faire * 
@@ -317,7 +319,7 @@ function upgradeSlots (index) {
       pourquoi il doit être toujours positif. Ex : egal = 180 - (-70), n'est pas 
       bonne, car sa va ajouter et pas soustraire.)*/
       
-      if (!(dispCercleUnit == '0' || dispCercleUnit == '1')) {
+      if ((dispCercleUnit != '0') && (Math.abs(dispCercleUnit) != '1')) { //Math.abs car il est possible que c'est négatif
       if (sign == '-') {
         if (quadChoisi <= 0.5) {
           quadrant = quadrantText + '2'
@@ -345,10 +347,10 @@ function upgradeSlots (index) {
     
     if (operand.includes('sin')) {
       egal = Math.asin(eval(cercleUnit))
-      egal = (egal * (180 / Math.PI)).toFixed()
+      egal = Math.abs(Math.round(egal * (180 / Math.PI)))
       
       
-      if (!(dispCercleUnit.includes('0') || dispCercleUnit.includes('1'))) {
+      if ((dispCercleUnit != '0') && (Math.abs(dispCercleUnit) != '1')) {
       if (sign == '-') {
         if (quadChoisi <= 0.5) {
           quadrant = quadrantText + '4'
@@ -493,7 +495,6 @@ function upgradeSlots (index) {
       
       divSec += upg.cps;
       total -= upg.prix;
-      horloge();
       upg.mult *= 1.5
       upg.prix = parseInt(upg.mult*upg.prix)
       var affichePrix = document.getElementById(upg.mainId);

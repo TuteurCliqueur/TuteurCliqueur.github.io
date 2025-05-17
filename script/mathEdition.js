@@ -119,7 +119,7 @@ const upgrades = [
     mainId: 'prix9',
     montantId: 'numberId9',
     numOf: 2, //Doit etre deux parceque c'est un rectangle
-    range: 300,
+    range: 150,
     opertbl: [' + ', ' * '], //Put spaces when putting operations
   },
     
@@ -144,6 +144,7 @@ const upgrades = [
     cps: 10000,
     mainId: 'prix11',
     montantId: 'numberId11',
+    opertbl: ['sin', 'cos'], //Put spaces when putting operations
   },
   ]
 
@@ -254,7 +255,7 @@ function upgradeSlots (index) {
   var egal = null
   hypo.innerHTML = ''
   
-  if (index == 6) {
+  if (index == 6 || index == 8) {
     operand = upg.opertbl[parseInt(Math.random() * (upg.opertbl.length))]
     num1 = parseInt(Math.random() * upg.range) + 1
     num2 = parseInt(Math.random() * upg.range) + 1
@@ -277,6 +278,106 @@ function upgradeSlots (index) {
     haut.innerHTML = num1
   }
   
+  else if (index == 10) {
+    const trigTbl = ['1/2', '1', '0', '√3/2', '√2/2']
+    let operand = upg.opertbl[parseInt(Math.random() * (upg.opertbl.length))]
+    let dispCercleUnit = trigTbl[parseInt(Math.random() * (trigTbl.length))]
+    let signChoisi = Math.random()
+    let sign = ''
+    let cercleUnit = null
+    let quadChoisi = Math.random()
+    let quadrant = ''
+    let quadrantText = ' si on est dans la quadrant '
+    
+    
+    
+    if ((signChoisi <= 0.5) && !dispCercleUnit.includes('0')) { //Pourque sa ajoute pas une signe négatif quand c'est 0
+      sign = '-'
+    }
+
+
+
+   dispCercleUnit = sign + dispCercleUnit
+   cercleUnit = dispCercleUnit
+    
+     if (dispCercleUnit.includes('√')) {
+      cercleUnit = dispCercleUnit.replace(/√(\d+)/g, "Math.sqrt($1)") 
+     }
+
+    if (operand.includes('cos')) {
+      
+      egal = Math.acos(eval(cercleUnit))
+      egal = Math.abs((egal * (180 / Math.PI)).toFixed()) 
+      
+      /*Javascript n'est pas exact avec ses calculs, donc j'utilise toFixed 
+      car je veux arrondir (defaut est 0). C'est aussi en Radian donc je dois faire * 
+      (180 / Math.PI) pour la conversion. De plus, les radians peuvent donner 
+      des négatif donc je doit changer à un nombre positif avec Math.abs() (Dans 
+      cette cas, on connais le quadran et on fai l'opération néssesaire, c'est 
+      pourquoi il doit être toujours positif. Ex : egal = 180 - (-70), n'est pas 
+      bonne, car sa va ajouter et pas soustraire.)*/
+      
+      if (!(dispCercleUnit == '0' || dispCercleUnit == '1')) {
+      if (sign == '-') {
+        if (quadChoisi <= 0.5) {
+          quadrant = quadrantText + '2'
+           egal = 180 - egal
+        }
+        else {
+          quadrant = quadrantText + '3'
+          egal = 180 + egal
+        }
+      }
+      
+      else {
+        if (quadChoisi <= 0.5) {
+          quadrant = quadrantText + '1'
+        }
+        else { 
+          quadrant = quadrantText + '4'
+          egal = 360 - egal
+        }
+      }
+      }
+        dispQuestionVar = 'Cosinus de quel angle égal à ' + dispCercleUnit + quadrant
+      
+    }
+    
+    if (operand.includes('sin')) {
+      egal = Math.asin(eval(cercleUnit))
+      egal = (egal * (180 / Math.PI)).toFixed()
+      
+      
+      if (!(dispCercleUnit.includes('0') || dispCercleUnit.includes('1'))) {
+      if (sign == '-') {
+        if (quadChoisi <= 0.5) {
+          quadrant = quadrantText + '4'
+           egal = 360 - egal
+        }
+        else {
+          quadrant = quadrantText + '3'
+          egal = 180 + egal
+        }
+      }
+      
+      else {
+        if (quadChoisi <= 0.5) {
+          quadrant = quadrantText + '1'
+        }
+        else { 
+          quadrant = quadrantText + '2'
+          egal = 180 - egal
+        }
+      }
+      }
+      
+      dispQuestionVar = 'Sinus de quel angle égal à ' + dispCercleUnit + quadrant
+      
+    }
+  
+    question.innerHTML = dispQuestionVar
+  }
+  
   else if (index == 9) {
   operand = upg.opertbl[parseInt(Math.random() * (upg.opertbl.length))];
   num1 = parseInt(Math.random() * upg.range) + 1;
@@ -289,18 +390,18 @@ function upgradeSlots (index) {
 
   if (operand.includes('cos')) {
     hypo.innerHTML = num1;
-    long.innerHTML = '?';
+    haut.innerHTML = '?';
     egal = (Math.cos(num2InRadians)) * num1;
   } 
   else if (operand.includes('sin')) {
     hypo.innerHTML = num1;
-    haut.innerHTML = '?';
+    long.innerHTML = '?';
     egal = (Math.sin(num2InRadians)) * num1;
   } 
   else {
-    let i = parseInt(Math.random() * 2);
+    let i = Math.random();
 
-    if (i == 1) {
+    if (i <= 0.5) {
       haut.innerHTML = num1;
       long.innerHTML = '?';
       egal = (Math.tan(num2InRadians)) * num1;
@@ -312,6 +413,8 @@ function upgradeSlots (index) {
     }
   }
 
+  egal = egal.toFixed(2)
+  
   document.getElementById('question').style.display = 'none';
   document.getElementById('grRectId').style.display = 'grid';
   document.getElementById('theta').style.display = 'block';

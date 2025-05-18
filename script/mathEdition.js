@@ -1,4 +1,4 @@
- var total = 0 // montant de commencement
+ var total = 10000000000 // montant de commencement
   var divSec = 0 //Controle le montant de points par seconde par diviser 1000 mms (ou une seconde) par le montant demandé
   var cpstotal = 0 //Cliques par seconde
   let time = null; //Ceci fait que la premiere fois ça ne reinitialise pas l'horloge sur le premier tour (utilisé dans la fonction horloge)
@@ -223,17 +223,6 @@ function affiche() {
     locked(upgrades[i].prix, box, i, prix)
   }
   
-  locked(upgrades[0].prix, 'box1', 0, 'prix1')
-  locked(upgrades[1].prix, 'box2', 1, 'prix2')
-  locked(upgrades[2].prix, 'box3', 2, 'prix3') 
-  locked(upgrades[3].prix, 'box4', 3, 'prix4')
-  locked(upgrades[4].prix, 'box5', 4, 'prix5')
-  locked(upgrades[5].prix, 'box6', 5, 'prix6')
-  locked(upgrades[6].prix, 'box7', 6, 'prix7')
-  locked(upgrades[7].prix, 'box8', 7, 'prix8')
-  locked(upgrades[8].prix, 'box9', 8, 'prix9')
-  locked(upgrades[9].prix, 'box10', 9, 'prix10') 
-  locked(upgrades[10].prix, 'box11', 10, 'prix11')
   tut2()
 }
 //Cette fonction registre les cliques
@@ -320,6 +309,9 @@ function upgradeSlots (index) {
   }
   
   else if (index == 10) {
+    
+  
+    
     const trigTbl = ['1/2', '1', '0', '√3/2', '√2/2']
     let operand = upg.opertbl[parseInt(Math.random() * (upg.opertbl.length))]
     let dispCercleUnit = trigTbl[parseInt(Math.random() * (trigTbl.length))]
@@ -377,6 +369,8 @@ function upgradeSlots (index) {
         }
       }
       }
+        document.getElementById('question').style.display = 'block';
+        document.getElementById('grRectId').style.display = 'none';
         dispQuestionVar = 'Cosinus de quel angle égal à ' + dispCercleUnit + quadrant
       
     }

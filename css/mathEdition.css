@@ -103,7 +103,6 @@ backdrop-filter: blur(20px);
   transition: transform 0.3s;
 }
 .upgrade li:active {
-  background-color: #eeeeee;
   transform: scale(1.15);
   transition: transform 0.3s;
 }
@@ -210,4 +209,25 @@ backdrop-filter: blur(20px);
       color: #000;
       grid-row: 3 / 4;
       transform: translate(0px, -65px);
+    }
+    
+    .boxClass1 {
+    background-size: contain ;
+    background-image: url('	https://assets.onecompiler.app/43aey9ppa/43j3k6zey/inverted_image_alpha_preserved.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #000000;
+    }
+    
+    .boxClass1:hover {
+
+    animation: nuhUh 1s infinite;
+    }
+    
+    @keyframes nuhUh {
+      
+      from {transform: rotate(0deg);}
+      33% {transform: rotate(5deg);}
+      66% {transform: rotate(-5deg);}
+      to {transform: rotate(0deg);}
     }

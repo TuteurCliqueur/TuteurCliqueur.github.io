@@ -3,6 +3,7 @@
   var cpstotal = 0 //Cliques par seconde
   let time = null; //Ceci fait que la premiere fois ça ne reinitialise pas l'horloge sur le premier tour (utilisé dans la fonction horloge)
   var cycletut2 = true //Ça controle le cycle du deuxieme tutoriel et va seulement affiché une seule fois
+  var cpc = 1
   let tempAvant = performance.now();
 
 requestAnimationFrame(horloge);
@@ -20,6 +21,7 @@ const upgrades = [
     numOf: 2,
     range: 10,
     opertbl: [' + '], //Put spaces when putting operations
+    inconnue: false,
   },
   
   {
@@ -33,6 +35,7 @@ const upgrades = [
     numOf: 2,
     range: 20,
     opertbl: [' - '], //Put spaces when putting operations
+    inconnue: true,
   },
   
   {
@@ -46,6 +49,7 @@ const upgrades = [
     numOf: 4,
     range: 10,
     opertbl: [' + ', ' - '], //Put spaces when putting operations
+    inconnue: true,
   },
   
   {
@@ -59,6 +63,7 @@ const upgrades = [
     numOf: 2,
     range: 10,
     opertbl: [' * '], //Put spaces when putting operations
+    inconnue: true,
   },  
   
   {
@@ -72,6 +77,7 @@ const upgrades = [
     numOf: 2,
     range: 15,
     opertbl: [' / '], //Put spaces when putting operations
+    inconnue: true,
   },
     
   {
@@ -85,6 +91,7 @@ const upgrades = [
     numOf: 4,
     range: 50,
     opertbl: [' / ', ' * '], //Put spaces when putting operations
+    inconnue: true,
   },
     
   {
@@ -98,6 +105,7 @@ const upgrades = [
     numOf: 2, //Doit etre deux parceque c'est un rectangle
     range: 75,
     opertbl: [' + ', ' * '], //Put spaces when putting operations
+    inconnue: true,
   },
     
   {
@@ -111,6 +119,7 @@ const upgrades = [
     numOf: 4,
     range: 5,
     opertbl: [' √ ', ' ** '], //WHEN DOING SQUARE ROOT, MAKE IT FIRST IN ARRAY, this one is complicated
+    inconnue: true,
   },
     
   {
@@ -124,6 +133,7 @@ const upgrades = [
     numOf: 2, //Doit etre deux parceque c'est un rectangle
     range: 300,
     opertbl: [' + ', ' * '], //Put spaces when putting operations
+    inconnue: true,
   },
     
   {
@@ -137,6 +147,7 @@ const upgrades = [
     numOf: 2, //Doit etre deux parceque c'est un rectangle
     range: 300,
     opertbl: ['sin', 'cos', 'tan'], //Put spaces when putting operations
+    inconnue: true,
   },
     
   {
@@ -148,6 +159,7 @@ const upgrades = [
     mainId: 'prix11',
     montantId: 'numberId11',
     opertbl: ['sin', 'cos'], //Put spaces when putting operations
+    inconnue: true,
   },
   ]
 
@@ -167,17 +179,33 @@ function numberOf(elementId, valeur) {
   Id.innerHTML = valeur;
 }
 //Cette fonction fait en sorte que les améliorations sont blockés
-function locked (prixIntial, id) {
-//Si le total est moins que le prix initial de l'amélioration, c'est bloqué
+function locked (prixIntial, id, index, prixtext) {
+  
+let upg = upgrades[index]
+  
+if (upg.inconnue) {
+  document.getElementById(id).className = "boxClass1";
+  document.getElementById(prixtext).style = "visibility: hidden;" //je utilise 'visibility', parce que je veux que le texte ait toujours un impact sur la présentation de la boîte.
+}
+
+if ((total >= prixIntial) && upg.inconnue) {
+  upg.inconnue = false
+  document.getElementById(prixtext).style = "visibility: visible;"
+  document.getElementById(id).classList.remove('boxClass1');
+  cpc *= 2
+}
+
+if (!upg.inconnue) {
 if (total < prixIntial) {
   document.getElementById(id).style.backgroundColor = "#444444";
   document.getElementById(id).style.cursor = "not-allowed";
   }
 //Ou si le total est plus grand ou égal au prix initiale
 else if (total >= prixIntial) {
-  document.getElementById(id).style.backgroundColor = "#FFFFFF";
+  document.getElementById(id).style.backgroundColor = "#ffffff";
   document.getElementById(id).style.cursor = "pointer";
   }
+ }
 }
 //Affiche le tout pour la page mathEdition
 function affiche() {
@@ -187,22 +215,30 @@ function affiche() {
   var affiche2 = document.getElementById("counterPar");
   affiche2.innerHTML = divSec + ' cliques par seconde';
   
-  locked(upgrades[0].prix, 'box1')
-  locked(upgrades[1].prix, 'box2')
-  locked(upgrades[2].prix, 'box3')
-  locked(upgrades[3].prix, 'box4')
-  locked(upgrades[4].prix, 'box5')
-  locked(upgrades[5].prix, 'box6')
-  locked(upgrades[6].prix, 'box7')
-  locked(upgrades[7].prix, 'box8')
-  locked(upgrades[8].prix, 'box9')
-  locked(upgrades[9].prix, 'box10')
-  locked(upgrades[10].prix, 'box11')
+  for (let i = 0; i <= (upgrades.length - 1); i++) {
+    
+    let box = ('box' + (i + 1)).toString()
+    let prix = ('prix' + (i + 1)).toString()
+    
+    locked(upgrades[i].prix, box, i, prix)
+  }
+  
+  locked(upgrades[0].prix, 'box1', 0, 'prix1')
+  locked(upgrades[1].prix, 'box2', 1, 'prix2')
+  locked(upgrades[2].prix, 'box3', 2, 'prix3') 
+  locked(upgrades[3].prix, 'box4', 3, 'prix4')
+  locked(upgrades[4].prix, 'box5', 4, 'prix5')
+  locked(upgrades[5].prix, 'box6', 5, 'prix6')
+  locked(upgrades[6].prix, 'box7', 6, 'prix7')
+  locked(upgrades[7].prix, 'box8', 7, 'prix8')
+  locked(upgrades[8].prix, 'box9', 8, 'prix9')
+  locked(upgrades[9].prix, 'box10', 9, 'prix10') 
+  locked(upgrades[10].prix, 'box11', 10, 'prix11')
   tut2()
 }
 //Cette fonction registre les cliques
 function clickCounter() {
-  total++
+  total += cpc
   affiche()
 }
 
@@ -226,7 +262,7 @@ var calc = document.getElementById('calc')
 
     const popup = document.createElement('div');
     popup.className = 'popup';
-    popup.textContent = '+1';
+    popup.textContent = '+' + cpc;
 
     popup.style.left = `${event.pageX}px`;
     popup.style.top = `${event.pageY}px`;

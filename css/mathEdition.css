@@ -89,8 +89,14 @@ body {
 
 .mmeButton:hover {
   filter: none;
-  transform: scale(1.1);
+  animation: tourne 2s linear infinite;
   cursor: pointer;
+}
+
+@keyframes tourne {
+  from {transform: rotate(0deg) scale(1);}
+  50% {transform: rotate(180deg) scale(1.2);}
+  to {transform: rotate(360deg) scale(1);}
 }
 
 .calcMain {
@@ -247,14 +253,15 @@ body {
     
     .boxClass1:hover {
 
-    animation: nuhUh 1s infinite;
+    animation: nuhUh 1s linear infinite;
     }
     
     @keyframes nuhUh {
       
       from {transform: rotate(0deg);}
-      33% {transform: rotate(5deg);}
-      66% {transform: rotate(-5deg);}
+      25% {transform: rotate(5deg);}
+      50% {transform: rotate(0deg);}
+      75% {transform: rotate(-5deg);}
       to {transform: rotate(0deg);}
     }
     

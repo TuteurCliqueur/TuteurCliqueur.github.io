@@ -46,12 +46,21 @@
       </p>
     <input type="button" onclick="document.getElementById('tut2').style.display = 'none'; document.getElementById('blurJS').style.display = 'none';" value='Fermer'>
   </div>
+  
+  <div class="hi" id="motDePasseDiv" style="display: none;">
+    <h1>Entrez la mot de passe</h1>
+    <input type="text" id='motDePasse'> 
+        <input type="button" id='verifyPasse' value='Entrez'>
+  </div>
 
-  <div class="size1 left ">
+  <div class="size1 left">
+    <div onclick='boutSpec();' class="mmeButton">
+      ???
+    </div>
     <h1 id="counter" style="color: #ffffff; margin-top: 5%">0</h1>
     <h2 id="counterPar" style="color: #ffffff; margin-top: 5%">0 cliques par seconde</h2>
-      <div class="calcMain" onclick="clickCounter()">
-        <img draggable="false" id='calc' src="https://tuteurcliqueur.github.io/images/Calculator-Download-Free-PNG.png" style='cursor: pointer;' width="60%">
+      <div class="calcMain">
+        <img onclick="clickCounter()" draggable="false" id='calc' src="https://tuteurcliqueur.github.io/images/Calculator-Download-Free-PNG.png" style='cursor: pointer;' width="60%">
       </div>
   </div>
 
@@ -120,7 +129,7 @@
 
 <div id='prt1' class='hi' style='display: none;'>
   <h1 id='type'></h1>
-    <div id='question'>asdasd</div>
+    <div id='question'>Erreur :(</div>
       <br></br>
       <div class="grRect" id="grRectId" style='display: none;'>
       <div id="longeur" class="long"></div>

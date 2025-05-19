@@ -62,11 +62,37 @@ body {
 
 }
 .right {
-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   right: 0;
   text-align: center;
   border: 5px solid #ffffff;
 }
+
+.mmeButton {
+  position: absolute;
+  display: flex;
+  width: 50px;
+  height: 50px;
+  background-image: url('https://i.pinimg.com/736x/8a/df/76/8adf763d78bd8adf57583383be4d4321.jpg');
+  background-size: cover;
+  left: 30px;
+  top: 10px;
+  border: 4px solid #776600;
+  border-radius: 15px;
+  font-weight: bold;
+  font-size: 25px;
+  align-items: center;
+  justify-content: center; 
+  filter: grayscale(1);
+  transition: 0.5s;
+}
+
+.mmeButton:hover {
+  filter: none;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
 .calcMain {
   width: auto;
   margin: auto;
@@ -231,3 +257,4 @@ backdrop-filter: blur(20px);
       66% {transform: rotate(-5deg);}
       to {transform: rotate(0deg);}
     }
+    

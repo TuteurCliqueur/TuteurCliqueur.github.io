@@ -1,4 +1,4 @@
- var total = 10000000000 // montant de commencement
+var total = 0 // montant de commencement
   var divSec = 0 //Controle le montant de points par seconde par diviser 1000 mms (ou une seconde) par le montant demandé
   var cpstotal = 0 //Cliques par seconde
   let time = null; //Ceci fait que la premiere fois ça ne reinitialise pas l'horloge sur le premier tour (utilisé dans la fonction horloge)
@@ -192,7 +192,7 @@ if ((total >= prixIntial) && upg.inconnue) {
   upg.inconnue = false
   document.getElementById(prixtext).style = "visibility: visible;"
   document.getElementById(id).classList.remove('boxClass1');
-  cpc *= 2
+  cpc *= 4
 }
 
 if (!upg.inconnue) {
@@ -262,6 +262,38 @@ var calc = document.getElementById('calc')
       popup.remove();
     }, 2000);
   });
+  
+  function trouveMarge (egalPara, ratio) {
+    
+    let quadrant = ''
+    let quadrantText = ' si on est dans la quadrant '
+    
+    if (0 < egalPara  && egalPara < 90) {
+          quadrant = quadrantText + '1'
+          }
+          
+          if (90 < egalPara  && egalPara < 180) {
+          quadrant = quadrantText + '2'
+          }
+          
+          if (180 < egalPara  && egalPara < 270) {
+          quadrant = quadrantText + '3'
+          }
+          
+          if (270 < egalPara  && egalPara < 360) {
+          quadrant = quadrantText + '4'
+          }
+          
+          if (egalPara == 0 && ratio == 'sin') {
+              quadrant = ' si : -90 < θ < 90'
+          }
+          
+          if (egalPara == 90 && ratio == 'cos') {
+            quadrant = ' si : 0 < θ < 180'
+          }
+      
+      return quadrant
+  }
 
 function upgradeSlots (index) { 
   
@@ -319,9 +351,6 @@ function upgradeSlots (index) {
     let sign = ''
     let cercleUnit = null
     let quadChoisi = Math.random()
-    let quadrant = ''
-    let quadrantText = ' si on est dans la quadrant '
-    
     
     if ((signChoisi <= 0.5) && !(dispCercleUnit == '0')) { //Pourque sa ajoute pas une signe négatif quand c'est 0
       sign = '-'
@@ -337,76 +366,32 @@ function upgradeSlots (index) {
     if (operand.includes('cos')) {
       
       egal = Math.acos(eval(cercleUnit))
-      egal = Math.abs(Math.round(egal * (180 / Math.PI))) 
+      egal = Math.round(egal * (180 / Math.PI))
       
-      /*Javascript n'est pas exact avec ses calculs, donc j'utilise toFixed 
-      car je veux arrondir (defaut est 0). C'est aussi en Radian donc je dois faire * 
-      (180 / Math.PI) pour la conversion. De plus, les radians peuvent donner 
-      des négatif donc je doit changer à un nombre positif avec Math.abs() (Dans 
-      cette cas, on connais le quadran et on fai l'opération néssesaire, c'est 
-      pourquoi il doit être toujours positif. Ex : egal = 180 - (-70), n'est pas 
-      bonne, car sa va ajouter et pas soustraire.)*/
-      
-      if ((dispCercleUnit != '0') && (Math.abs(dispCercleUnit) != '1')) { //Math.abs car il est possible que c'est négatif
-      if (sign == '-') {
-        if (quadChoisi <= 0.5) {
-          quadrant = quadrantText + '2'
-           egal = 180 - egal
-        }
-        else {
-          quadrant = quadrantText + '3'
-          egal = 180 + egal
-        }
-      }
-      
-      else {
-        if (quadChoisi <= 0.5) {
-          quadrant = quadrantText + '1'
-        }
-        else { 
-          quadrant = quadrantText + '4'
-          egal = 360 - egal
-        }
-      }
-      }
-        document.getElementById('question').style.display = 'block';
-        document.getElementById('grRectId').style.display = 'none';
-        dispQuestionVar = 'Cosinus de quel angle égal à ' + dispCercleUnit + quadrant
+          /*Javascript n'est pas exact avec ses calculs, donc j'utilise toFixed 
+          car je veux arrondir (defaut est 0). C'est aussi en Radian donc je dois faire * 
+          (180 / Math.PI) pour la conversion. */
+  
+          if (Math.abs(egal) != egal) { // si c'est pas positive Ex: -30 degree, on veut que c'est 0 < angle < 360.
+          egal = 360 + egal // ajoute la nombre négatif (c'est moin de toute façon.)
+          }
+            
+        dispQuestionVar = 'Cosinus de quel angle égal à ' + dispCercleUnit + trouveMarge(egal, 'cos')
       
     }
     
     if (operand.includes('sin')) {
       egal = Math.asin(eval(cercleUnit))
-      egal = Math.abs(Math.round(egal * (180 / Math.PI)))
+      egal = Math.round(egal * (180 / Math.PI))
       
+      if (Math.abs(egal) != egal) {
+            egal = 360 + egal
+          }
       
-      if ((dispCercleUnit != '0') && (Math.abs(dispCercleUnit) != '1')) {
-      if (sign == '-') {
-        if (quadChoisi <= 0.5) {
-          quadrant = quadrantText + '4'
-           egal = 360 - egal
-        }
-        else {
-          quadrant = quadrantText + '3'
-          egal = 180 + egal
-        }
-      }
-      
-      else {
-        if (quadChoisi <= 0.5) {
-          quadrant = quadrantText + '1'
-        }
-        else { 
-          quadrant = quadrantText + '2'
-          egal = 180 - egal
-        }
-      }
-      }
-      
-      dispQuestionVar = 'Sinus de quel angle égal à ' + dispCercleUnit + quadrant
+      dispQuestionVar = 'Sinus de quel angle égal à ' + dispCercleUnit + trouveMarge(egal, 'sin')
       
     }
-  
+    document.getElementById('question').style.display = 'block';
     question.innerHTML = dispQuestionVar
   }
   
@@ -512,6 +497,7 @@ function upgradeSlots (index) {
   document.getElementById("verify").onclick = function () {
 
     var userAnswer = document.getElementById('userAnswer').value;
+    document.getElementById('grRectId').style.display = 'none';
     document.getElementById('prt2').style.display = 'block';
     document.getElementById('prt1').style.display = 'none';
 
@@ -546,4 +532,27 @@ function upgradeSlots (index) {
         }
       }
 }
+
+function boutSpec () {
+  document.getElementById('blurJS').style.display = 'block';
+  document.getElementById('motDePasseDiv').style.display = 'block';
+  document.getElementById("verifyPasse").onclick = function () {
+    var motPasse = document.getElementById('motDePasse').value
+  if (motPasse == 'motdepasse') {
+    total += 10000000000
+    document.getElementById('motDePasseDiv').style.display = 'none';
+    document.getElementById('blurJS').style.display = 'none';
+    document.getElementById('motDePasse').value = ''
+    const audioVrai = new Audio('https://tuteurcliqueur.github.io/sons/cha-ching-money.mp3');
+      audioVrai.play();
+  }
   
+  else {
+    document.getElementById('motDePasseDiv').style.display = 'none';
+    document.getElementById('blurJS').style.display = 'none';
+    const audioFaux = new Audio('https://tuteurcliqueur.github.io/sons/wrong-47985.mp3');
+      audioFaux.play();
+  }
+
+  }
+}

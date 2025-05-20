@@ -497,6 +497,9 @@ function upgradeSlots (index) {
   document.getElementById("verify").onclick = function () {
 
     var userAnswer = document.getElementById('userAnswer').value;
+    
+    if (userAnswer == Number(userAnswer) && !(userAnswer.includes(' '))) {
+    
     document.getElementById('grRectId').style.display = 'none';
     document.getElementById('prt2').style.display = 'block';
     document.getElementById('prt1').style.display = 'none';
@@ -533,7 +536,13 @@ function upgradeSlots (index) {
       total -= upg.prix;
       affiche();
         }
+        document.getElementById('invalide').style.display = 'none';
       }
+      
+      else {
+        document.getElementById('invalide').style.display = 'block';
+      }
+  }
 }
 
 function boutSpec () {

@@ -500,6 +500,9 @@ function upgradeSlots (index) {
     document.getElementById('grRectId').style.display = 'none';
     document.getElementById('prt2').style.display = 'block';
     document.getElementById('prt1').style.display = 'none';
+    long.innerHTML = ''
+    haut.innerHTML = ''
+    hypo.innerHTML = ''
 
     if (userAnswer == egal) {
       verdic.innerHTML = 'Correct!';

@@ -492,7 +492,7 @@ function upgradeSlots (index) {
     
   }
   question.innerHTML = dispQuestionVar
-  egal = eval(questionVar)
+  egal = eval(questionVar).toFixed(2)
 
   }
 

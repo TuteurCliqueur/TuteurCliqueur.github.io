@@ -4,14 +4,6 @@
     <meta charset="UTF-8">
 		<title>Tuteur Cliqueur</title>
 		<link rel="stylesheet" href="css/mathEdition.css">
-	  <style>
-		.bouttonAide {
-			display: none;
-			padding:20px;
-			border: 1px solid black;
-			margin-top: 10px;
-		}
-	  </style>
   </head>
   <body> <!--Menu en haut de page-->
     	<nav class="navbar">
@@ -59,14 +51,19 @@
   </div>
   
   <div class="hi" id="motDePasseDiv" style="display: none;">
-    <h1>Entrez le mot de passe</h1>
+    <h1>Entrez la mot de passe</h1>
     <input type="text" id='motDePasse'> 
         <input type="button" id='verifyPasse' value='Entrez'>
   </div>
 
-  <div class="size1 left">
-    <div onclick='boutSpec();' class="mmeButton">
-     
+  <div class="size1 left"> 
+  
+  
+    <div onclick='boutSpec();' class="mmeButton bout">
+     ???
+    </div>
+    <div onclick='' class="aideBout bout">
+ 
     </div>
     <h1 id="counter" style="color: #ffffff; margin-top: 5%">0</h1>
     <h2 id="counterPar" style="color: #ffffff;">0 cliques par seconde</h2>
@@ -78,7 +75,6 @@
   <div class="size2 right">
     <h1 style='color: #ffffff'>Magasin</h1>
     <ul style="color: #ffffff;" class="upgrade">
-  <!-- ajoute(numAnné, varPrix, varMult, divNum, affichePrixId, varNumDe, afficheNumberId) -->
   
         <li id="box1" onclick="upgradeSlots(0);">
           <h1 id='numberId1' class='numberOf'> </h1>
@@ -137,41 +133,6 @@
         
 </ul>
 </div>
-<button onclick="showDiv()">AIDE!</button>
-
-<div id="bouttonAide">
-	<p>Annee 1 : Imagine que tu as une pomme, et tu prends une autre pomme. Combien t’a maintenant ?
-
-Annee 2 : Imagine que tu as une banane, et tu enlèves une autre banane. Combien de banane reste-t-il ?
-
-Annee 3 :  Imagine que tu as une banane, une carotte et que tu enlèves des bananes et des carottes. Que reste-t-il ?
-
-Annee 4 : Imagine que tu as une banane, mais on a plusieurs groupes de ces bananes. Combien de bannes est-ce qu'il y a ?
-
-Annee 5 : Imagine, tu as des fruits et tu le sépares en différents groupes. Combien est-ce qu'il y a dans chaque groupe ?
-
-Annee 6 : Imagine, tu as Groupe de fruits et le montant à l'intérieur de chaque et puis tu peux les diviser et les multiplier. 
-
-Annee 7 :  Faire B fois H pour trouver A.
-
-Annee 8 :  Faits sûrs de faire PEMDAS
-
-Annee 9 : Additionne tous les côtés pour le périmètre
-
-Annee 10 : SOH CAH TOA
-
-Annee 11 : Cercle Unitaire
-</p>
-<button onclick="hideDiv()">Annuler</button>
-</div>
-<script>
- function showDiv() {
-	 document.getElementById("bouttonAide").style.display = "block";
- }
-function hideDiv() {
-		document.getElementById("bouttonAide").style.display = "none";
-	}
-</script>
 <!-- question de trigo et aire et perimetre-->
 <div id='prt1' class='hi' style='display: none;'>
   <h1 id='type'></h1>
@@ -183,7 +144,7 @@ function hideDiv() {
       <div id="forme" class="tri"></div>
       <div id="hypotenuse" class="hypo"></div>
     </div>
-      <!--Repomse vrai ou faux-->
+      <!--Reponse vrai ou faux-->
       <p id='theta'></p>
       <br></br>
         <input type="text" id='userAnswer'> 

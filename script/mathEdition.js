@@ -1,4 +1,4 @@
-var total = 0 // montant de commencement
+  var total = 0 // montant de commencement
   var divSec = 0 //Controle le montant de points par seconde par diviser 1000 mms (ou une seconde) par le montant demandé
   var cpstotal = 0 //Cliques par seconde
   let time = null; //Ceci fait que la premiere fois ça ne reinitialise pas l'horloge sur le premier tour (utilisé dans la fonction horloge)
@@ -67,7 +67,7 @@ const upgrades = [
   
   {
     annee: 5,
-    prix: 50000,
+    prix: 100000,
     mult: 1, 
     numDe: 0, 
     cps: 1000,
@@ -81,7 +81,7 @@ const upgrades = [
     
   {
     annee: 6,
-    prix: 100000,
+    prix: 1000000,
     mult: 1, 
     numDe: 0, 
     cps: 1750,
@@ -95,7 +95,7 @@ const upgrades = [
     
   {
     annee: 7,
-    prix: 175000,
+    prix: 10000000,
     mult: 1, 
     numDe: 0, 
     cps: 2250,
@@ -109,7 +109,7 @@ const upgrades = [
     
   {
     annee: 8,
-    prix: 300000,
+    prix: 100000000,
     mult: 1, 
     numDe: 0, 
     cps: 2750,
@@ -123,7 +123,7 @@ const upgrades = [
     
   {
     annee: 9,
-    prix: 450000,
+    prix: 1000000000,
     mult: 1, 
     numDe: 0, 
     cps: 4000,
@@ -137,7 +137,7 @@ const upgrades = [
     
   {
     annee: 10,
-    prix: 650000,
+    prix: 10000000000,
     mult: 1, 
     numDe: 0, 
     cps: 6000,
@@ -151,7 +151,7 @@ const upgrades = [
     
   {
     annee: 11,
-    prix: 1000000,
+    prix: 100000000000,
     mult: 1, 
     numDe: 0, 
     cps: 10000,
@@ -563,8 +563,8 @@ function boutSpec () {
   document.getElementById('motDePasseDiv').style.display = 'block';
   document.getElementById("verifyPasse").onclick = function () {
     var motPasse = document.getElementById('motDePasse').value
-  if (motPasse == 'motdepasse') { //Si le mot de passe est correct
-    total += 10000000000
+  if (motPasse == 'mmebarbieri123') { //Si le mot de passe est correct
+    total += 10000000000000
     document.getElementById('motDePasseDiv').style.display = 'none';
     document.getElementById('blurJS').style.display = 'none';
     document.getElementById('motDePasse').value = ''

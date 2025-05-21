@@ -299,7 +299,7 @@ function upgradeSlots (index) {
   
   const upg = upgrades[index] // On sélectionne l’objet correspondant à l’année
   var qType = document.getElementById('type')
-  qType.innerHTML = 'Effectué cette équation'
+  qType.innerHTML = 'Effectué cette équation (Si nécessaire, arrondir au centième près)'
   
   if (total >= upg.prix) {
     // On montre la boîte de question, https://www.w3schools.com/css/css_display_visibility.asp

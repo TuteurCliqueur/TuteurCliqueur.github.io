@@ -492,8 +492,13 @@ function upgradeSlots (index) {
     
   }
   question.innerHTML = dispQuestionVar
+    
+  if(parseInt(egal) == egal) {
+    egal = eval(questionVar)
+  }
+    else {
   egal = eval(questionVar).toFixed(2)
-
+    }
   }
 
 }

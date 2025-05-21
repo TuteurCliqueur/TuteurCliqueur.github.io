@@ -257,7 +257,7 @@ var calc = document.getElementById('calc')
 
     document.body.appendChild(popup);
 
-    setTimeout(() => {
+    setTimeout(() => { //https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout
       popup.remove();
     }, 2000);
   });
@@ -302,7 +302,7 @@ function upgradeSlots (index) {
   qType.innerHTML = 'Effectué cette équation'
   
   if (total >= upg.prix) {
-    // On montre la boîte de question
+    // On montre la boîte de question, https://www.w3schools.com/css/css_display_visibility.asp
   document.getElementById('prt1').style.display = 'block'
   document.getElementById('blurJS').style.display = 'block'
   document.getElementById('theta').style.display = 'none'
@@ -369,7 +369,7 @@ function upgradeSlots (index) {
       // Cas pour le cosinus : on trouve l’angle correspondant
     if (operand.includes('cos')) {
       
-      egal = Math.acos(eval(cercleUnit))
+      egal = Math.acos(eval(cercleUnit)) //https://www.w3schools.com/jsref/jsref_eval.asp
       egal = Math.round(egal * (180 / Math.PI)) 
       
           /*Javascript n'est pas exact avec ses calculs, donc j'utilise toFixed 
@@ -537,7 +537,7 @@ else {
       upg.numDe++
       numberOf(upg.montantId, upg.numDe)
     }
-      //Si la réponse est fausse
+      //Si la réponse est fausse, https://www.w3schools.com/jsref/met_audio_play.asp
       else {
       verdic.innerHTML = 'Incorect...';
       answer.innerHTML = 'Answer : ' + egal;

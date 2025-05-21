@@ -492,7 +492,15 @@ function upgradeSlots (index) {
   }
 
 }
-  
+
+else {
+  if (upg.inconnue){
+    alert("Cette année est encore inconnue !")
+  }
+  else {
+    alert("Vous n'avez pas assez de points pour acheter cette améliorations!")
+  }
+}
 
   document.getElementById("verify").onclick = function () {
 

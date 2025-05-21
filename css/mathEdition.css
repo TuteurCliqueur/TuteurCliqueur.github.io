@@ -4,7 +4,7 @@ body {
   padding: 25px;
   font-family: 'Calibri', Sans-Serif; 
   user-select: none;
-}
+}/* Barre de navigation - liste horizontale, apparence blanche avec bordure noire */
 .navbar ul {
   list-style-type: none;
   background-color: #ffffff;
@@ -14,7 +14,7 @@ body {
   overflow: hidden;
   border-radius: 7px;
   border: 3px solid #000000;
-}
+}/* Liens de la navbar - gras, centrés, avec transition au survol */
 .navbar a {
   font-weight: bold;
   color: #000000;
@@ -23,19 +23,22 @@ body {
   display: block;
   text-align: center;
   transition: transform 0.3s;
-}
+}/* Effet au survol des liens normaux de la navbar */
 .navbar a:hover {
   background-color: #eeeeee;
   transform: scale(1.05);
 }
+/* Effet spécial au survol des liens verrouillés (class navlock) */
 .navlock a:hover {
   color: #000000;
   background-color: #909090;
   transform: scale(1.05);
 }
+/* Affichage des éléments de navigation sur une même ligne */
 .navbar li {
   float: left;
 }
+/* Style pour la colonne de gauche - 30% de largeur, position fixe */
 .size2 {
   height: 100%;
   width: 30%;
@@ -45,7 +48,7 @@ body {
   overflow-x: hidden;
   padding-top: 0;
   border-radius: 25px;
-}
+}/* Style pour la colonne de droite - 75% de largeur, position fixe */
 .size1 {
   height: 100%;
   width: 75%;
@@ -55,19 +58,19 @@ body {
   overflow-x: hidden;
   padding-top: 0;
   
-}
+}/* Alignement centré pour les éléments à gauche */
 .left {
   left: 0;
   text-align: center;
 
-}
+}/* Colonne de droite avec effet de flou d’arrière-plan et bordure blanche */
 .right {
   backdrop-filter: blur(20px);
   right: 0;
   text-align: center;
   border: 5px solid #ffffff;
 }
-
+/* Bouton "mme" en haut à gauche avec image et effet gris */
 .mmeButton {
   position: absolute;
   display: flex;
@@ -86,18 +89,20 @@ body {
   filter: grayscale(1);
   transition: 0.5s;
 }
-
+/* Animation et effet sur le bouton "mme" lorsqu’on passe la souris */
 .mmeButton:hover {
   filter: none;
   animation: tourne 2s linear infinite;
   cursor: pointer;
 }
 
+/* Animation de rotation du bouton "mme" */
 @keyframes tourne {
   from {transform: rotate(0deg) scale(1);}
   50% {transform: rotate(180deg) scale(1.2);}
   to {transform: rotate(360deg) scale(1);}
 }
+/* Conteneur principal de la calculatrice */
 
 .calcMain {
   width: auto;
@@ -113,10 +118,11 @@ body {
   transform: scale(1.2);
   transition: transform 0.3s;
 }
+/* Liste d’éléments de mise à niveau */
 .upgrade {
   list-style-type: none;
   padding: 0;
-}
+}/* Style des éléments individuels de la liste d’upgrades */
 .upgrade li{
   background-color: #444444;
   color: #000000;
@@ -137,11 +143,12 @@ body {
 .upgrade li:active {
   transform: scale(1.15);
   transition: transform 0.3s;
-}
+}/* Affichage de texte flottant à gauche */
 .numberOf {
   float: left;
   margin-top: 2%;
 }
+/* Info-bulle animée apparaissant lors d’un clic */
 .popup {
     position: absolute;
     padding: 8px 12px;
@@ -153,12 +160,13 @@ body {
     animation-fill-mode: forwards;
     color: #ff0000;
     font-weight: bold;
-  }
+  }/* Animation de l’info-bulle pop-up (bug potentiel avec ${event.pageY}) */
 @keyframes popUpClick {
   from {${event.pageY}px;}
   to {top: 40px; opacity: 0%; rotate: 90deg;}
     }
     
+/* Fenêtre contextuelle grise avec bordure noire */
 .hi {
    position: fixed;
    display: inline-block;
@@ -173,17 +181,18 @@ body {
    text-align: center;
    z-index: 5
  }
- 
+ /* Animation pour les bonnes réponses (vert -> gris) */
  @keyframes correct {
   from {background-color: #64cc64;}
   to {background-color: #aaaaaa;}
     }
-    
+    /* Animation pour les mauvaises réponses (rouge -> gris) */
   @keyframes incorrect {
   from {background-color: #cc6464;}
   to {background-color: #aaaaaa;}
   }
   
+/* Arrière-plan flouté pour les questions */
  .questionBackBlur {
    position: fixed;
    display: inline-block;
@@ -194,7 +203,7 @@ body {
    left: 0px;
    top: 0px;
  }
- 
+ /* Grille d’éléments géométriques */
   .grRect {
       display: grid;
       grid-template-columns: auto 300px;
@@ -203,14 +212,14 @@ body {
       align-items: center;
       justify-content: center;
     }
-
+/* Texte sous la forme longue (horizontal) */
     .long {
       grid-column: 2 / 3;
       text-align: center;
       font-weight: bold;
       font-size: 100%;
     }
-
+/* Texte vertical (haut) */
     .haut {
       grid-row: 2 / 3;
       text-align: right;
@@ -219,13 +228,14 @@ body {
       writing-mode: horizontal-rl;
     }
 
+/* Rectangle gris */
     .rect {
       width: 300px;
       height: 150px;
       background-color: #999999;
       border: 2px solid #000;
     }
-
+/* Triangle en image */
     .tri {
       width: 300px;
       height: 150px;
@@ -233,6 +243,7 @@ body {
       background-size: cover;
     }
 
+/* Texte pour l’hypoténuse (centré en bas) */
     .hypo {
       grid-column: 1 / 3;
       text-align: center;
@@ -243,6 +254,7 @@ body {
       transform: translate(0px, -65px);
     }
     
+/* Boîte avec fond personnalisé (image inversée) */
     .boxClass1 {
     background-size: contain ;
     background-image: url('	https://assets.onecompiler.app/43aey9ppa/43j3k6zey/inverted_image_alpha_preserved.png');
@@ -250,12 +262,12 @@ body {
     background-position: center;
     background-color: #000000;
     }
-    
+    /* Animation au survol de la boîte (secouement) */
     .boxClass1:hover {
 
     animation: nuhUh 1s linear infinite;
     }
-    
+    /* Définition de l’animation de secouement "nuhUh" */
     @keyframes nuhUh {
       
       from {transform: rotate(0deg);}

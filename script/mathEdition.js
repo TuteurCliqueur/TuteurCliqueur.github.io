@@ -247,7 +247,7 @@ function horloge(tempIntial) {
 var calc = document.getElementById('calc')
 
     calc.addEventListener('click', function(event) {
- // On crée une boîte popup pour afficher le gain de clic
+ // On crée une boîte popup pour afficher le gain de clic, https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
     const popup = document.createElement('div');
     popup.className = 'popup';
     popup.textContent = '+' + cpc;

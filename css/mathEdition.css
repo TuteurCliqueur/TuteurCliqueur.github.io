@@ -141,7 +141,7 @@ body {
 /* Liste d’éléments de mise à niveau */
 .upgrade {
   list-style-type: none;
-  padding: 0;
+  padding-bottom: 30%;
 }/* Style des éléments individuels de la liste d’upgrades */
 .upgrade li{
   background-color: #444444;

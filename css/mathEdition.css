@@ -265,10 +265,10 @@ body {
     /* Animation au survol de la boîte (secouement) */
     .boxClass1:hover {
 
-    animation: nuhUh 1s linear infinite;
+    animation: secouer 1s linear infinite;
     }
     /* Définition de l’animation de secouement "nuhUh" */
-    @keyframes nuhUh {
+    @keyframes secouer {
       
       from {transform: rotate(0deg);}
       25% {transform: rotate(5deg);}

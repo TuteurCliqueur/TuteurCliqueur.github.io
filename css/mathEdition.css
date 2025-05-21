@@ -96,7 +96,7 @@ body {
   cursor: pointer;
 }
 
-/* Animation de rotation du bouton "mme" */
+/* Animation de rotation du bouton "mme", https://www.w3schools.com/cssref/atrule_keyframes.php */
 @keyframes tourne {
   from {transform: rotate(0deg) scale(1);}
   50% {transform: rotate(180deg) scale(1.2);}

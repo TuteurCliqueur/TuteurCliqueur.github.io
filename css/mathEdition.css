@@ -70,6 +70,12 @@ body {
   text-align: center;
   border: 5px solid #ffffff;
 }
+
+.paddText {
+   padding: 10%;
+  padding-top: 0;
+}
+
 /* Bouton "mme" en haut à gauche avec image et effet gris */
 .mmeButton {
   position: absolute;

@@ -493,14 +493,12 @@ function upgradeSlots (index) {
   }
   question.innerHTML = dispQuestionVar
     
-  if(parseInt(egal) == egal) {
-    egal = eval(questionVar)
+  egal = eval(questionVar)
+    
+  if(parseInt(egal) != egal) {
+    egal = egal.toFixed(2)
   }
-    else {
-  egal = eval(questionVar).toFixed(2)
-    }
   }
-
 }
 //Gestion des erreurs si l'utilisateur n’a pas assez de points ou si l’amélioration est bloquée
 else {

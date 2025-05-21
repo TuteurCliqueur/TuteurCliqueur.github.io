@@ -5,7 +5,7 @@
 		<title>Tuteur Cliqueur</title>
 		<link rel="stylesheet" href="css/mathEdition.css">
   </head>
-  <body>
+  <body> <!--Menu en haut de page-->
     	<nav class="navbar">
 	    <ul>
 	      <li><a href="https://tuteurcliqueur.github.io/index.html">Accueil</a></li>
@@ -14,7 +14,7 @@
 	      <li class="navlock"><a onclick="lockAudio()">🔒 Édition Histoire 🔒</a></li>
 	    </ul>
 	 </nav>
-	  
+	  <!--Tutoriel partie1-->
   <div class="hi" id="tut1">
    <h1>Bienvenue à notre jeu de cliqueur !</h1>
      <p style='font-size: 75%; font-weight: bold;'>
@@ -30,7 +30,7 @@
      </p>
     	<input type="button" onclick="document.getElementById('tut1').style.display = 'none'; document.getElementById('blurJS').style.display = 'none';" value='Fermer'>
   </div>
-
+<!--Tutoriel partie2-->
   <div class="hi" id="tut2" style="display: none;">
     <h1>Tu peut maintenant acheter.</h1>
       <p style='font-size: 75%; font-weight: bold;'>
@@ -55,7 +55,7 @@
 
   <div class="size1 left">
     <div onclick='boutSpec();' class="mmeButton">
-      ???
+     
     </div>
     <h1 id="counter" style="color: #ffffff; margin-top: 5%">0</h1>
     <h2 id="counterPar" style="color: #ffffff;">0 cliques par seconde</h2>
@@ -67,7 +67,7 @@
   <div class="size2 right">
     <h1 style='color: #ffffff'>Magasin</h1>
     <ul style="color: #ffffff;" class="upgrade">
-  <!-- add(numAnné, varPrix, varMult, divNum, affichePrixId, varNumDe, afficheNumberId) -->
+  <!-- ajoute(numAnné, varPrix, varMult, divNum, affichePrixId, varNumDe, afficheNumberId) -->
   
         <li id="box1" onclick="upgradeSlots(0);">
           <h1 id='numberId1' class='numberOf'> </h1>
@@ -126,7 +126,7 @@
         
 </ul>
 </div>
-
+<!-- question de trigo et aire et perimetre-->
 <div id='prt1' class='hi' style='display: none;'>
   <h1 id='type'></h1>
     <div id='question'>Erreur :(</div>
@@ -137,7 +137,7 @@
       <div id="forme" class="tri"></div>
       <div id="hypotenuse" class="hypo"></div>
     </div>
-      
+      <!--Repomse vrai ou faux-->
       <p id='theta'></p>
       <br></br>
         <input type="text" id='userAnswer'> 

@@ -6,159 +6,158 @@ var total = 0 // montant de commencement
   var cpc = 1
   let tempAvant = performance.now();
 
-requestAnimationFrame(horloge);
+requestAnimationFrame(horloge); // met l'animation de la fonction horloge en boucle
 
 const upgrades = [
   {
-    annee: 1,
-    prix: 10,
-    mult: 1, //Keep all multipliers to one
-    numDe: 0, //Keep all numDe to zero
-    cps: 1,
-    mainId: 'prix1',
-    montantId: 'numberId1',
-    //Question part
-    numOf: 2,
-    range: 10,
-    opertbl: [' + '], //Put spaces when putting operations
-    inconnue: false,
+    annee: 1, // Année scolaire 
+    prix: 10, // Prix de cette mise à niveau
+    mult: 1, // Multiplicateur (non utilisé pour le moment, toujours à 1)
+    numDe: 0, // Nombre de dés (actuellement toujours à 0)
+    cps: 1, // Nombre de points générés par seconde
+    mainId: 'prix1', // ID HTML utilisé pour afficher le prix
+    montantId: 'numberId1', // ID HTML utilisé pour afficher la quantité achetée
+    numOf: 2, // Nombre de valeurs dans l'équation générée
+    range: 10, // Intervalle de valeurs possibles pour les nombres
+    opertbl: [' + '], // Liste des opérateurs mathématiques utilisés
+    inconnue: false, // Indique s'il y a une inconnue à résoudre
   },
   
   {
     annee: 2,
     prix: 100,
-    mult: 1, //Keep all multipliers to one
-    numDe: 0, //Keep all numDe to zero
+    mult: 1, 
+    numDe: 0, 
     cps: 10,
     mainId: 'prix2',
     montantId: 'numberId2',
     numOf: 2,
     range: 20,
-    opertbl: [' - '], //Put spaces when putting operations
+    opertbl: [' - '], 
     inconnue: true,
   },
   
   {
     annee: 3,
     prix: 1000,
-    mult: 1, //Keep all multipliers to one
-    numDe: 0, //Keep all numDe to zero
+    mult: 1, 
+    numDe: 0, 
     cps: 100,
     mainId: 'prix3',
     montantId: 'numberId3',
     numOf: 4,
     range: 10,
-    opertbl: [' + ', ' - '], //Put spaces when putting operations
+    opertbl: [' + ', ' - '], 
     inconnue: true,
   },
   
   {
     annee: 4,
     prix: 10000,
-    mult: 1, //Keep all multipliers to one
-    numDe: 0, //Keep all numDe to zero
+    mult: 1, 
+    numDe: 0, 
     cps: 500,
     mainId: 'prix4',
     montantId: 'numberId4',
     numOf: 2,
     range: 10,
-    opertbl: [' * '], //Put spaces when putting operations
+    opertbl: [' * '], 
     inconnue: true,
   },  
   
   {
     annee: 5,
     prix: 50000,
-    mult: 1, //Keep all multipliers to one
-    numDe: 0, //Keep all numDe to zero
+    mult: 1, 
+    numDe: 0, 
     cps: 1000,
     mainId: 'prix5',
     montantId: 'numberId5',
     numOf: 2,
     range: 15,
-    opertbl: [' / '], //Put spaces when putting operations
+    opertbl: [' / '], 
     inconnue: true,
   },
     
   {
     annee: 6,
     prix: 100000,
-    mult: 1, //Keep all multipliers to one
-    numDe: 0, //Keep all numDe to zero
+    mult: 1, 
+    numDe: 0, 
     cps: 1750,
     mainId: 'prix6',
     montantId: 'numberId6',
     numOf: 4,
     range: 50,
-    opertbl: [' / ', ' * '], //Put spaces when putting operations
+    opertbl: [' / ', ' * '], 
     inconnue: true,
   },
     
   {
     annee: 7,
     prix: 175000,
-    mult: 1, //Keep all multipliers to one
-    numDe: 0, //Keep all numDe to zero
+    mult: 1, 
+    numDe: 0, 
     cps: 2250,
     mainId: 'prix7',
     montantId: 'numberId7',
     numOf: 2, //Doit etre deux parceque c'est un rectangle
     range: 75,
-    opertbl: [' + ', ' * '], //Put spaces when putting operations
+    opertbl: [' + ', ' * '], 
     inconnue: true,
   },
     
   {
     annee: 8,
     prix: 300000,
-    mult: 1, //Keep all multipliers to one
-    numDe: 0, //Keep all numDe to zero
+    mult: 1, 
+    numDe: 0, 
     cps: 2750,
     mainId: 'prix8',
     montantId: 'numberId8',
     numOf: 4,
     range: 5,
-    opertbl: [' √ ', ' ** '], //WHEN DOING SQUARE ROOT, MAKE IT FIRST IN ARRAY, this one is complicated
+    opertbl: [' √ ', ' ** '], //la racine carrée doit apparaître en premier dans la liste
     inconnue: true,
   },
     
   {
     annee: 9,
     prix: 450000,
-    mult: 1, //Keep all multipliers to one
-    numDe: 0, //Keep all numDe to zero
+    mult: 1, 
+    numDe: 0, 
     cps: 4000,
     mainId: 'prix9',
     montantId: 'numberId9',
-    numOf: 2, //Doit etre deux parceque c'est un rectangle
+    numOf: 2, 
     range: 300,
-    opertbl: [' + ', ' * '], //Put spaces when putting operations
+    opertbl: [' + ', ' * '], 
     inconnue: true,
   },
     
   {
     annee: 10,
     prix: 650000,
-    mult: 1, //Keep all multipliers to one
-    numDe: 0, //Keep all numDe to zero
+    mult: 1, 
+    numDe: 0, 
     cps: 6000,
     mainId: 'prix10',
     montantId: 'numberId10',
-    numOf: 2, //Doit etre deux parceque c'est un rectangle
+    numOf: 2, 
     range: 300,
-    opertbl: ['sin', 'cos', 'tan'], //Put spaces when putting operations
+    opertbl: ['sin', 'cos', 'tan'], 
     inconnue: true,
   },
     
   {
     annee: 11,
     prix: 1000000,
-    mult: 1, //Keep all multipliers to one
-    numDe: 0, //Keep all numDe to zero
+    mult: 1, 
+    numDe: 0, 
     cps: 10000,
     mainId: 'prix11',
     montantId: 'numberId11',
-    opertbl: ['sin', 'cos'], //Put spaces when putting operations
+    opertbl: ['sin', 'cos'], 
     inconnue: true,
   },
   ]
@@ -241,14 +240,14 @@ function horloge(tempIntial) {
     total += divSec * deltaTemp;
   }
 
-  affiche(); // update visuals
+  affiche(); // mise a jour des visuels
   requestAnimationFrame(horloge);
 }
-
+// On récupère l'élément HTML avec l'ID 'calc' (bouton de calcul)
 var calc = document.getElementById('calc')
 
     calc.addEventListener('click', function(event) {
-
+ // On crée une boîte popup pour afficher le gain de clic
     const popup = document.createElement('div');
     popup.className = 'popup';
     popup.textContent = '+' + cpc;
@@ -262,7 +261,7 @@ var calc = document.getElementById('calc')
       popup.remove();
     }, 2000);
   });
-  
+  // Fonction qui retourne dans quel quadrant on se trouve selon l’angle et la fonction trigonométrique utilisée
   function trouveMarge (egalPara, ratio) {
     
     let quadrant = ''
@@ -284,6 +283,7 @@ var calc = document.getElementById('calc')
           quadrant = quadrantText + '4'
           }
           
+  // Cas particuliers pour les angles clés avec sinus ou cosinus
           if (egalPara == 0 && ratio == 'sin') {
               quadrant = ' si : -90 < θ < 90'
           }
@@ -294,14 +294,15 @@ var calc = document.getElementById('calc')
       
       return quadrant
   }
-
+// Fonction qui génère une équation et affiche l’interface de résolution
 function upgradeSlots (index) { 
   
-  const upg = upgrades[index]
+  const upg = upgrades[index] // On sélectionne l’objet correspondant à l’année
   var qType = document.getElementById('type')
   qType.innerHTML = 'Effectué cette équation'
   
   if (total >= upg.prix) {
+    // On montre la boîte de question
   document.getElementById('prt1').style.display = 'block'
   document.getElementById('blurJS').style.display = 'block'
   document.getElementById('theta').style.display = 'none'
@@ -316,7 +317,7 @@ function upgradeSlots (index) {
   var dispQuestionVar = ''
   var egal = null
   hypo.innerHTML = ''
-  
+  // Cas pour les rectangles (années 7 et 9)
   if (index == 6 || index == 8) {
     operand = upg.opertbl[parseInt(Math.random() * (upg.opertbl.length))]
     num1 = parseInt(Math.random() * upg.range) + 1
@@ -340,6 +341,7 @@ function upgradeSlots (index) {
     haut.innerHTML = num1
   }
   
+    // Cas pour la trigonométrie (année 10)
   else if (index == 10) {
     
   
@@ -352,21 +354,23 @@ function upgradeSlots (index) {
     let cercleUnit = null
     let quadChoisi = Math.random()
     
+    
     if ((signChoisi <= 0.5) && !(dispCercleUnit == '0')) { //Pourque sa ajoute pas une signe négatif quand c'est 0
       sign = '-'
     }
 
    dispCercleUnit = sign + dispCercleUnit
    cercleUnit = dispCercleUnit
-    
+    // Si la valeur contient une racine, on la convertit pour l'évaluer avec `eval()`
      if (dispCercleUnit.includes('√')) {
       cercleUnit = dispCercleUnit.replace(/√(\d+)/g, "Math.sqrt($1)") 
      }
 
+      // Cas pour le cosinus : on trouve l’angle correspondant
     if (operand.includes('cos')) {
       
       egal = Math.acos(eval(cercleUnit))
-      egal = Math.round(egal * (180 / Math.PI))
+      egal = Math.round(egal * (180 / Math.PI)) 
       
           /*Javascript n'est pas exact avec ses calculs, donc j'utilise toFixed 
           car je veux arrondir (defaut est 0). C'est aussi en Radian donc je dois faire * 
@@ -379,30 +383,30 @@ function upgradeSlots (index) {
         dispQuestionVar = 'Cosinus de quel angle égal à ' + dispCercleUnit + trouveMarge(egal, 'cos')
       
     }
-    
+    // Cas pour le sinus : on cherche l’angle dont le sinus donne une certaine valeur
     if (operand.includes('sin')) {
       egal = Math.asin(eval(cercleUnit))
       egal = Math.round(egal * (180 / Math.PI))
-      
+      // Si l’angle est négatif, on l’ajuste pour l’exprimer entre 0 et 360
       if (Math.abs(egal) != egal) {
             egal = 360 + egal
           }
-      
+       // On affiche une question du type : "Sinus de quel angle égal à ..."
       dispQuestionVar = 'Sinus de quel angle égal à ' + dispCercleUnit + trouveMarge(egal, 'sin')
       
     }
     document.getElementById('question').style.display = 'block';
     question.innerHTML = dispQuestionVar
   }
-  
+  // Cas pour l’année 9: trigonométrie avec triangle rectangle
   else if (index == 9) {
   operand = upg.opertbl[parseInt(Math.random() * (upg.opertbl.length))];
   num1 = parseInt(Math.random() * upg.range) + 1;
-  num2 = parseInt(Math.random() * 60) + 1;  // Angle in degrees
+  num2 = parseInt(Math.random() * 60) + 1;  // Angle en degrees
   
   thet.innerHTML = 'θ = ' + num2 + '°';
 
-  // Convert num2 (angle in degrees) to radians
+  // On convertit l’angle en radians (nécessaire pour les fonctions trigonométriques en JavaScript)
   var num2InRadians = num2 * (Math.PI / 180);
 
   if (operand.includes('cos')) {
@@ -438,16 +442,17 @@ function upgradeSlots (index) {
   document.getElementById('forme').className = 'tri';
 }
   else {
-    
+    // Cas pour les autres niveaux où on pose une équation simple (ex. carré, racine, etc.)
     document.getElementById('question').style.display = 'block'
     document.getElementById('grRectId').style.display = 'none'
-    
+    //Voici la boucle pour la verificaiton de racine carre
   for (let i = 0; i < upg.numOf; i++) {
     
     ranOperand = ''
     number = parseInt(Math.random() * upg.range) + 1
     operand = upg.opertbl[parseInt(Math.random() * (upg.opertbl.length))]
 
+    // Si l’opération est une racine, on élève au carré pour avoir un entier parfait
       if (operand.includes('√')) {
       number **= 2;
       questionVar += '√' + number.toString();
@@ -492,7 +497,7 @@ function upgradeSlots (index) {
   }
 
 }
-
+//Gestion des erreurs si l'utilisateur n’a pas assez de points ou si l’amélioration est bloquée
 else {
   if (upg.inconnue){
     alert("Cette année est encore inconnue !")
@@ -505,7 +510,7 @@ else {
   document.getElementById("verify").onclick = function () {
 
     var userAnswer = document.getElementById('userAnswer').value;
-    
+      // Vérifie que l'entrée est un nombre et ne contient pas d’espace
     if (userAnswer == Number(userAnswer) && !(userAnswer.includes(' '))) {
     
     document.getElementById('grRectId').style.display = 'none';
@@ -514,7 +519,7 @@ else {
     long.innerHTML = ''
     haut.innerHTML = ''
     hypo.innerHTML = ''
-
+//Si la réponse est correcte
     if (userAnswer == egal) {
       verdic.innerHTML = 'Correct!';
       answer.innerHTML = 'Answer : ' + egal;
@@ -532,7 +537,7 @@ else {
       upg.numDe++
       numberOf(upg.montantId, upg.numDe)
     }
-      
+      //Si la réponse est fausse
       else {
       verdic.innerHTML = 'Incorect...';
       answer.innerHTML = 'Answer : ' + egal;
@@ -546,19 +551,19 @@ else {
         }
         document.getElementById('invalide').style.display = 'none';
       }
-      
+      //Si l'entrée est invalide (texte, vide, espace, etc.)
       else {
         document.getElementById('invalide').style.display = 'block';
       }
   }
 }
-
+//Fonction pour entrer mot de passe pour mme
 function boutSpec () {
   document.getElementById('blurJS').style.display = 'block';
   document.getElementById('motDePasseDiv').style.display = 'block';
   document.getElementById("verifyPasse").onclick = function () {
     var motPasse = document.getElementById('motDePasse').value
-  if (motPasse == 'motdepasse') {
+  if (motPasse == 'motdepasse') { //Si le mot de passe est correct
     total += 10000000000
     document.getElementById('motDePasseDiv').style.display = 'none';
     document.getElementById('blurJS').style.display = 'none';
@@ -566,7 +571,7 @@ function boutSpec () {
     const audioVrai = new Audio('https://tuteurcliqueur.github.io/sons/cha-ching-money.mp3');
       audioVrai.play();
   }
-  
+  //Si le mot de passe est incorrect
   else {
     document.getElementById('motDePasseDiv').style.display = 'none';
     document.getElementById('blurJS').style.display = 'none';

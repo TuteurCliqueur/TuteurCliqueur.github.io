@@ -187,7 +187,7 @@ body {
     }
     
 /* Fenêtre contextuelle grise avec bordure noire */
-.hi {
+.boite {
    position: fixed;
    display: inline-block;
    width: 50%;

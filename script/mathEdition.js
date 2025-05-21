@@ -6,7 +6,7 @@ var total = 0 // montant de commencement
   var cpc = 1
   let tempAvant = performance.now();
 
-requestAnimationFrame(horloge); // met l'animation de la fonction horloge en boucle
+requestAnimationFrame(horloge); // met l'animation de la fonction horloge en boucle, https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame
 
 const upgrades = [
   {

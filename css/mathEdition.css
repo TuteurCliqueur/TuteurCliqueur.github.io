@@ -89,8 +89,28 @@ body {
   filter: grayscale(1);
   transition: 0.5s;
 }
+
+.aideBout {
+  position: absolute;
+  display: flex;
+  width: 50px;
+  height: 50px;
+  background-image: url('https://tuteurcliqueur.github.io/images/HH-38_First_Aid_Red_Cross_grande.webp');
+  background-size: cover;
+  background-color: white;
+  left: 30px;
+  top: 20%;
+  border: 4px solid #f00;
+  border-radius: 15px;
+  font-weight: bold;
+  font-size: 25px;
+  align-items: center;
+  justify-content: center; 
+  filter: grayscale(1);
+  transition: 0.5s;
+}
 /* Animation et effet sur le bouton "mme" lorsqu’on passe la souris */
-.mmeButton:hover {
+.bout:hover {
   filter: none;
   animation: tourne 2s linear infinite;
   cursor: pointer;

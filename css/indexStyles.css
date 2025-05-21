@@ -1,8 +1,8 @@
-body {
+body { /* Style général du corps de la page */
   padding: 25px;
   font-family: 'Calibri', Sans-Serif;
   background-color: #f5f0e1;
-}
+}/* Barre de navigation */
 .navbar ul {
   list-style-type: none;
   background-color: #ffffff;
@@ -12,7 +12,7 @@ body {
   overflow: hidden;
   border-radius: 7px;
   border: 3px solid #000000;
-}
+}/* Style des liens dans la barre de navigation */
 .navbar a {
   font-weight: bold;
   color: #000000;
@@ -21,12 +21,13 @@ body {
   display: block;
   text-align: center;
   transition: transform 0.3s;
-}
+}/* Effets au survol des liens de navigation */
 .navbar a:hover {
   background-color: #eeeeee;
   transform: scale(1.05);
   cursor: pointer;
 }
+/* Varie de survol pour les liens verrouillés ou différents */
 .navlock a:hover {
   color: #000000;
   background-color: #909090;
@@ -35,6 +36,7 @@ body {
 .navbar li {
   float: left;
 }
+/* Styles partagés pour les bulles de matière (math, géo, histoire) */
 .mathematiqueBubble,
 .geographieBubble,
 .histoireBubble {
@@ -49,13 +51,14 @@ body {
   overflow: hidden;
   transition: transform 0.3s;
   margin: 20px;
-}
+}/* Effets au survol des bulles */
 .mathematiqueBubble:hover,
 .geographieBubble:hover,
 .histoireBubble:hover {
   transform: scale(1.05);
   cursor: pointer;
 }
+
 .mathematiqueBubble {
   background-image: url("https://i0.wp.com/calmatters.org/wp-content/uploads/2021/08/math-curriculum.jpg?fit=2000%2C1500&ssl=1");
 }
@@ -66,7 +69,7 @@ body {
   background-image: url("https://assets.onecompiler.app/43abp64dh/43hccjhtv/Sans%20titreballs.jpg");
 }
 .geographieText,
-.histoireText{
+.histoireText{/* Texte sur fond d’image pour les boutons géographie et histoire */
   background-image: url("https://assets.onecompiler.app/43abp64dh/43gyy55ae/Screenshot%202025-05-06%20220212.png");
   display: inline-block;
   background-color: #ffffff;
@@ -79,7 +82,7 @@ body {
   border: 3px solid #000000;
   transition: transform 0.3s;
 }
-.mathematiqueText{
+.mathematiqueText{/* Texte pour les mathématiques, sans fond d’image */
   display: inline-block;
   background-color: #ffffff;
   color: black;
@@ -92,7 +95,7 @@ body {
   border: 3px solid #000000;
   transition: transform 0.3s;
 }
-.title {
+.title {/* Style du titre principal */
   display: inline-block;
   background-color: #ffffff;
   color: #000000;
@@ -103,7 +106,7 @@ body {
   border: 3px solid #000000;
   transition: transform 0.3s;
 }
-.overlay-icon {
+.overlay-icon {/* Icône superposée centrée sur une bulle */
   position: absolute;
   top: 50%;
   left: 50%;

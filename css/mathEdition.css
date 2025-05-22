@@ -1,5 +1,5 @@
 body {
-  background-image: url('https://tuteurcliqueur.github.io/images/ezgif.com-effects.gif'); 
+  background-image: url('../images/ezgif.com-effects.gif'); 
   background-size: cover;
   padding: 25px;
   font-family: 'Calibri', Sans-Serif; 
@@ -101,7 +101,7 @@ body {
   display: flex;
   width: 50px;
   height: 50px;
-  background-image: url('https://tuteurcliqueur.github.io/images/HH-38_First_Aid_Red_Cross_grande.webp');
+  background-image: url('../images/HH-38_First_Aid_Red_Cross_grande.webp');
   background-size: cover;
   background-color: white;
   left: 30px;
@@ -266,7 +266,7 @@ body {
     .tri {
       width: 300px;
       height: 150px;
-      background-image: url('TuteurCliqueur.github.io/images/triangle.png');
+      background-image: url('../images/triangle.png');
       background-size: cover;
     }
 
@@ -284,7 +284,7 @@ body {
 /* Boîte avec fond personnalisé (image inversée) */
     .boxClass1 {
     background-size: contain ;
-    background-image: url('	https://assets.onecompiler.app/43aey9ppa/43j3k6zey/inverted_image_alpha_preserved.png');
+    background-image: url('../images/inverted_image_alpha_preserved.png');
     background-repeat: no-repeat;
     background-position: center;
     background-color: #000000;
